@@ -1,0 +1,203 @@
+* {
+    font-family: "Montserrat" !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+}
+
+.bg_secondary{
+    background-color: #f6f6f6!important;
+    font-weight: bold;
+}
+
+.yellow {
+    color: rgba(0, 97, 192, 1) !important;
+}
+
+svg {
+    color: rgba(0, 97, 192, 1) !important;
+    font-size: 20px;
+}
+
+.active {
+    background-color: rgba(0, 97, 192, 1) !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.sign-up-form {
+    border-top: #0477da solid 05px;
+}
+
+p,
+a {
+    font-size: 15px;
+}
+
+label {
+    font-size: 15px;
+}
+
+option {
+    color: #000 !important;
+    display: none !important;
+}
+
+/* a:hover{
+    color: rgba(0, 97, 192, 1)!important;
+} */
+
+button:hover {
+    transform: translateY(-5px);
+}
+
+body {
+    /* background-image: linear-gradient(to left, rgba(255, 0, 0, 0), rgba(0, 97, 192, 1)); */
+    background-repeat: repeat;
+    background-size: cover !important;
+}
+
+#login_logo {
+    width: 100px;
+    height: auto;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.searchBar {
+    width: 100vh !important;
+    border-radius: 30px !important;
+    cursor: pointer !important;
+    /* justify-content: space-between; */
+}
+
+.profil-img-zoom {
+    transition-duration: 0.2;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    z-index: 3000 !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    right: 0 !important;
+    left: 0 !important;
+}
+
+.home-form {
+    background-color: transparent !important;
+}
+
+.img-home {
+    /* padding-block: 30px !important; */
+    display: flex;
+    align-items: center;
+    /* height: 300px; */
+}
+
+.img-home img {
+    margin-top: 20px;
+}
+
+.sign-up {
+    background-color: #000 !important;
+    color: #fff !important;
+}
+
+.btn-blue {
+    background-color: rgba(0, 97, 192, 1) !important;
+    /* background-image:  linear-gradient(to top, rgba(255, 0, 0, 0), rgba(0, 97, 192, 1)); */
+    text-transform: uppercase;
+    color: #fff !important;
+    font-weight: bold;
+}
+
+.home-form input.form-control,
+select.form-control {
+    background-color: transparent;
+    color: rgba(0, 97, 192, 1);
+    font-size: 20px;
+}
+
+.home-form input.form-control:focus {
+    border-color: rgba(0, 97, 192, 1) !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sign-up-form {
+    background-color: #fff !important;
+    padding: 20px;
+}
+
+.text-blue {
+    color: #0477da !important;
+}
+
+.home-title {
+    font-size: 30px;
+    color: #000;
+    font-weight: bold
+}
+
+.d-flex input {
+    border-color: #0477da !important;
+    color: #0477da !important;
+    box-shadow: 0 0 0 .25rem rgba(0, 97, 192, .25)
+}
+
+.d-flex input::placeholder {
+    border-color: #0477da !important;
+    color: #0477da !important;
+}
+
+.d-flex .btn {
+    border-color: #0477da !important;
+    color: #0477da !important;
+    box-shadow: 0 0 0 .25rem rgba(0, 97, 192, .25)
+}
+
+.d-flex .btn:hover {
+    border-color: #0477da;
+    color: #0477da;
+    box-shadow: 0 0 0 .25rem rgba(254, 172, 116, .25)
+}
+
+.d-flex input:focus {
+    border-color: #0477da !important;
+    color: #0477da;
+    box-shadow: 0 0 0 .25rem rgba(0, 97, 192, 0.3)
+}
+
+/* 
+YELLOW COLOR: #f7eb28 rgba(0, 97, 192, 1)
+BLUE COLOR: #0477da
+*/
+#home-content {
+    margin-block: 50px !important;
+}
+
+#footer {
+    padding-block: 10px !important;
+    color: #000 !important;
+}
+
+.profil-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+/* SIDE BAR */
+#sideBarNav {
+    border-radius: 0px !important;
+}

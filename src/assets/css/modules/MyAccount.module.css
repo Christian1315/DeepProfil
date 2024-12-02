@@ -1,0 +1,16 @@
+
+.content{
+    border-radius: 10px;
+    border: solid #f6f6f6 3px;
+}
+
+.editButton {
+    font-weight: bold;
+    background-color: #f6f6f6;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+.profilImg{
+    cursor: pointer;
+}
