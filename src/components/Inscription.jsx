@@ -24,7 +24,7 @@ function Inscription() {
                         <div className="row">
                             <div className="col-12">
                                 <div className="text-center mb-3">
-                                    <img src={logo} id="login_logo" alt="" srcset="" />
+                                    <img src={logo} id="login_logo" alt="" srcSet="" />
                                 </div>
                                 <h3 className=" text-center">Inscrivez-vous ici!</h3>
                             </div>
@@ -32,15 +32,15 @@ function Inscription() {
                         <div className="row">
                             <div className="col-md-6">
                                 <div className="mb-3">
-                                    <label for="exampleInputEmail1" className="form-label">Nom</label>
+                                    <label htmlFor="exampleInputEmail1" className="form-label">Nom</label>
                                     <input type="text" autoFocus className="form-control" id="exampleInputEmail1" placeholder="Ex: GOGO" />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputEmail1" className="form-label">Prénom</label>
+                                    <label htmlFor="exampleInputEmail1" className="form-label">Prénom</label>
                                     <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Ex: Christian" />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputEmail1" className="form-label">Groupe de district</label>
+                                    <label htmlFor="exampleInputEmail1" className="form-label">Groupe de district</label>
                                     <select name="group" className="form-control" id="">
                                         <option  value="">Groupe 1</option>
                                         <option value="">Groupe 2</option>
@@ -49,7 +49,7 @@ function Inscription() {
                                     </select>
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputEmail1" className="form-label">District</label>
+                                    <label htmlFor="exampleInputEmail1" className="form-label">District</label>
                                     <select name="group" className="form-control" id="">
                                         <option value="">District 1</option>
                                         <option value="">District 2</option>
@@ -60,19 +60,19 @@ function Inscription() {
                             </div>
                             <div className="col-md-6">
                                 <div className="mb-3">
-                                    <label for="exampleInputEmail1" className="form-label">Email</label>
+                                    <label htmlFor="exampleInputEmail1" className="form-label">Email</label>
                                     <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Ex: gogochristian009@gmail.com" />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputEmail1" className="form-label">Phone</label>
+                                    <label htmlFor="exampleInputEmail1" className="form-label">Phone</label>
                                     <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Ex: 56854397" />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputPassword1" className="form-label">Mot de passe</label>
+                                    <label htmlFor="exampleInputPassword1" className="form-label">Mot de passe</label>
                                     <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Ex: mypassword" />
                                 </div>
                                 <div className="mb-3">
-                                    <label for="exampleInputPassword1" className="form-label">Confirmez votre mot de passe</label>
+                                    <label htmlFor="exampleInputPassword1" className="form-label">Confirmez votre mot de passe</label>
                                     <input type="password" className="form-control" placeholder="Ex: mypassword" id="exampleInputPassword1" />
                                 </div>
                             </div>

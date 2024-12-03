@@ -25,6 +25,7 @@ import Notifications from './components/Dashboard/Notifications.jsx';
 import News from './components/Dashboard/News.jsx';
 import Groups from './components/Dashboard/Groups.jsx';
 import MyAccount from './components/Dashboard/MyAccount.jsx';
+// import NotificationsDetail from './components/Dashboard/NotificationsDetail.jsx';
 
 function App() {
   return (
@@ -40,13 +41,14 @@ function App() {
                 <Route path="/reinitialize-password-demand" element={<DemandReinitializePassword />} />
                 <Route path="/reinitialize-password" element={<ReinitializePassword />} />
 
-                <Route path="/my-account" element={<AdminLayout component={<MyAccount />} icon={<i class="bi bi-gear mx-2"></i>} title={"Gestion de compte"}  />} />
+                <Route path="/my-account" element={<AdminLayout component={<MyAccount />} icon={<i className="bi bi-gear mx-2"></i>} title={"Gestion de compte"}  />} />
 
                 <Route path="/admin" element={<AdminLayout component={<Index />} title={"Bienvenu sur DeepProfil"}  />} />
                 <Route path="/friends" element={<AdminLayout component={<Friends />} icon={<i className="bi bi-people mx-2"></i>} title={"Mes ami(e)s"} />} />
                 <Route path="/news" element={<AdminLayout component={<News />} icon = {<i className="bi bi-megaphone mx-2"></i>} title={"Annonces"} />} />
                 <Route path="/chats" element={<AdminLayout component={<Chats />} icon={<i className="bi bi-chat-quote mx-2"></i>} title={"Conversations"} />} />
                 <Route path="/notifications" element={<AdminLayout component={<Notifications />} icon={<i className="bi bi-bell mx-2"></i>} title={"Notifications"} />} />
+                {/* <Route path="/notification-detail" element={<AdminLayout component={<NotificationsDetail notification={} />} icon={<i className="bi bi-bell mx-2"></i>} title={"Notifications"} />} /> */}
                 <Route path="/groups" element={<AdminLayout component={<Groups />} icon={<i className="bi bi-collection mx-2"></i>} title={"Groupes d'amis"} />} />
               </Routes>
               <Footer />
