@@ -2,7 +2,11 @@
 const Friends = () => {
     
     return <>
-        <p className="text-center">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Architecto, molestias, doloremque eos sequi ea maxime odit cum deleniti est ipsa impedit, aperiam natus vitae id quibusdam molestiae recusandae provident totam!</p>
+        <div className="row">
+            <div className="col-3">
+                <p className="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis repellendus impedit commodi, ullam provident dolores expedita ipsa. Maiores, unde rem! Doloremque dolorum debitis illo voluptates recusandae voluptatum eum, nostrum id!</p>
+            </div>
+        </div>
     </>
 }
 

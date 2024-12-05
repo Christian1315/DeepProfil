@@ -1,0 +1,17 @@
+
+._card{
+    border: 5px solid #f6f6f6;
+    border-radius: 5px;
+    align-items: center;
+}
+
+._card img{
+    /* width: 80px; */
+    margin-right: 10px;
+}
+
+.name{
+    font-size: 10px;
+    font-weight: bold;
+    justify-content: space-between;
+}

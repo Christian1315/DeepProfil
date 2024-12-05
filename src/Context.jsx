@@ -1,4 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
+
+import img1 from "./assets/images/pub1.jpg";
 
 const AppContext = React.createContext()
 
@@ -27,7 +30,7 @@ const AppProvider = ({ children }) => {
         },
         {
             id: 2,
-            text: "Annonces",
+            text: "Publications",
             url: "/news",
             active: false,
             icon: <i className="bi bi-megaphone mx-2"></i>
@@ -76,32 +79,44 @@ const AppProvider = ({ children }) => {
     // ######## SEARCH MODAL #####
     const [search, setSearch] = useState(false)
     const [searchText, setSearchText] = useState(null)
-    const [searchResult, setSearchResult] = useState([
+    const [searchResultInitial, setSearchResultInitial] = useState([
         {
             id: 1,
+            typeId: 1,
             text: "GOGO Christian",
+            type:'utilisateur'
         },
         {
             id: 2,
+            typeId: 2,
             text: "SEDEGNAN Florent",
+            type:'utilisateur'
         },
         {
             id: 3,
+            typeId: 3,
             text: "SETOH Nadège",
+            type:'utilisateur'
         },
         {
             id: 4,
+            typeId: 4,
             text: "DEGUI Martine",
+            type:'publication'
         },
         {
             id: 5,
+            typeId: 5,
             text: "GOGO Dodji",
+            type:'publication'
         }
     ])
-
+    const [searchResult, setSearchResult] = useState(searchResultInitial)
     const HandleSearch = (e) => {
         const text = e.target.value
         text.length != 0 ? setSearch(true) : setSearch(false)
+        const result = searchResult.filter((item)=> Object.values(item).join('').toLocaleLowerCase().includes(text.toLocaleLowerCase()))
+        text.length != 0 ?setSearchResult(result):setSearchResult(searchResultInitial)
     }
 
     // ####### PROFIL MODAL ######
@@ -130,39 +145,36 @@ const AppProvider = ({ children }) => {
         },
         {
             id: 3,
-            statut: 'old',
+            statut: 'new',
             title: 'Notification 3',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, deleniti quibusdam? Laudantium at distinctio, rem, dolorum reprehenderit animi ipsa voluptas veniam nihil, recusandae incidunt velit repellat eum! Libero, rem quo!'
         },
         {
             id: 4,
-            statut: 'old',
+            statut: 'new',
             title: 'Notification 4',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, deleniti quibusdam? Laudantium at distinctio, rem, dolorum reprehenderit animi ipsa voluptas veniam nihil, recusandae incidunt velit repellat eum! Libero, rem quo!'
         },
         {
             id: 5,
-            statut: 'old',
+            statut: 'new',
             title: 'Notification 5',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, deleniti quibusdam? Laudantium at distinctio, rem, dolorum reprehenderit animi ipsa voluptas veniam nihil, recusandae incidunt velit repellat eum! Libero, rem quo!'
         },
         {
             id: 6,
-            statut: 'old',
+            statut: 'new',
             title: 'Notification 6',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, deleniti quibusdam? Laudantium at distinctio, rem, dolorum reprehenderit animi ipsa voluptas veniam nihil, recusandae incidunt velit repellat eum! Libero, rem quo!'
         },
         {
             id: 7,
-            statut: 'old',
+            statut: 'new',
             title: 'Notification 7',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, deleniti quibusdam? Laudantium at distinctio, rem, dolorum reprehenderit animi ipsa voluptas veniam nihil, recusandae incidunt velit repellat eum! Libero, rem quo!'
         }
     ])
-
     const HandleNotificationClick = (id) => {
-        console.log(id)
-
         var newNotifications = notifications.map((item) => (
             id == parseInt(item.id) ?
                 { ...item, statut: 'old' } :
@@ -170,13 +182,72 @@ const AppProvider = ({ children }) => {
         ))
 
         setNotifications(newNotifications)
+
+        // return Navigate(`/notification-detail/:${id}`)
     }
+
+    // ###### PUBLICITES
+    const [publicities,setPublicities] = useState([
+        {
+            id:1,
+            title:'Publicité 1',
+            content:'Lorem ipsum ...',
+            img:img1
+        },
+        {
+            id:2,
+            title:'Publicité 2',
+            content:'Lorem ipsum ...',
+            img:img1
+        },
+        {
+            id:3,
+            title:'Publicité 3',
+            content:'Lorem ipsum ...',
+            img:img1
+        }
+    ])
+
+    // ###### INVITATIONS
+    const [invitations,setInvitations] = useState([
+        {
+            id:1,
+            since:'2j',
+            user:{
+                id:1,
+                img:img1,
+                name:'User 1'
+            }
+        },
+        {
+            id:2,
+            since:'3j',
+            user:{
+                id:2,
+                img:img1,
+                name:'User 2'
+            }
+        },
+        {
+            id:4,
+            since:'4j',
+            user:{
+                id:4,
+                img:img1,
+                name:'User 4'
+            }
+        }
+    ])
 
     // RENDERING
     return (
         <AppContext.Provider value={{
             notifications,
             HandleNotificationClick,
+
+            publicities,
+
+            invitations,
 
             login,
             loginText,

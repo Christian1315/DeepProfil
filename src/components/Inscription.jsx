@@ -69,11 +69,11 @@ function Inscription() {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label">Mot de passe</label>
-                                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Ex: mypassword" />
+                                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="******" />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="exampleInputPassword1" className="form-label">Confirmez votre mot de passe</label>
-                                    <input type="password" className="form-control" placeholder="Ex: mypassword" id="exampleInputPassword1" />
+                                    <input type="password" className="form-control" placeholder="******" id="exampleInputPassword1" />
                                 </div>
                             </div>
                         </div>

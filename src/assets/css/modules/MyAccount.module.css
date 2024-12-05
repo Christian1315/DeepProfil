@@ -2,6 +2,7 @@
 .content{
     border-radius: 10px;
     border: solid #f6f6f6 3px;
+    padding-block: 10px;
 }
 
 .editButton {

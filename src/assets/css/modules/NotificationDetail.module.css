@@ -1,8 +1,7 @@
-#notificationLink{
-    cursor: pointer;
-}
-
-#notificationLink:hover{
-    background-color: #f6f6f6;
-    transition-duration: 2;
+.title{
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    display: inline;
+    padding: 4px;
 }

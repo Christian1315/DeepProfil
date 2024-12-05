@@ -1,8 +1,8 @@
 
 const News = () => {
-    
+
     return <>
-        <p className="text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam id officiis itaque? Iste itaque cum sint reiciendis deleniti, molestias voluptatum modi deserunt aspernatur maxime. Amet obcaecati nemo dolorem vel quibusdam.</p>
+        <p className="text-center">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis facere unde aspernatur obcaecati rerum numquam, exercitationem molestiae corrupti optio sequi placeat libero dolorum esse repudiandae ab dicta quasi, iusto praesentium?</p>
     </>
 }
 
