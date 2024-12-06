@@ -37,7 +37,7 @@ const AppProvider = ({ children }) => {
         },
         {
             id: 3,
-            text: "Groupes d'amis",
+            text: "Groupes",
             url: "/groups",
             active: false,
             icon: <i className="bi bi-collection mx-2"></i>

@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../Context.jsx";
 
 function SideBar() {
-    const Context = useGlobalContext()
-    const {sideBarLinks,HandleSideBarNavigateLink} = Context
+    const {sideBarLinks,HandleSideBarNavigateLink} = useGlobalContext()
 
     return (
         <>

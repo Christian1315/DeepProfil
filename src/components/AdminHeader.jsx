@@ -4,8 +4,8 @@ import { useGlobalContext } from "../Context";
 
 const AdminHeader = () => {
    const {notifications} = useGlobalContext()
-
    const newNotifications = notifications.filter((item)=>item.statut=='new')
+   
     return <>
         <div className="row shadow-sm" id="header">
             <div className="col-md-12   px-0 mx-0">

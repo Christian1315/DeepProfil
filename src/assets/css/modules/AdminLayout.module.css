@@ -9,6 +9,7 @@
 }
 
 .component {
-    max-height: 80vh;
-    overflow-y: scroll;
+    max-height: 100vh;
+    /* overflow-y: scroll; */
+    overflow: auto;
 }

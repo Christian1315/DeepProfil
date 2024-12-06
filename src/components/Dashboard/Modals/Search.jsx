@@ -20,7 +20,7 @@ const Search = () => {
                             <ul className="list-group">
                                 {
                                     searchResult.map((item) => (
-                                        <Link key={item.id} to={"/"} className="text-dark list-group-item list-group-item-action d-flex justify-content-between align-items-start">{item.text} <span className={`badge rounded-pill text-bg-secondary ${style.badge} `}>{item.type.toLocaleLowerCase()}</span></Link>
+                                        <Link key={item.id} to={"/"} className="text-dark list-group-item list-group-item-action d-flex justify-content-between align-items-start">{item.text} <span className={`badge rounded-pill bg-blue ${style.badge} `}>{item.type.toLocaleLowerCase()}</span></Link>
                                     ))
                                 }
                             </ul>
