@@ -11,7 +11,7 @@ const Profil = () => {
     const {zoom,zoomTitle,zoomProfilImg} = Context
 
     return <>
-        <div className="modal fade" id="profilModal" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal animate__animated animate__bounceIn" id="profilModal" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header shadow shadow-sm">
@@ -19,7 +19,6 @@ const Profil = () => {
                             <img
                                 src={profil}
                                 width={30}
-                                // className={zoom ? "shadow shadow-sm img-fluid dropdown-toggle profil-img-zoom" : "rounded-circle mx-2 shadow shadow-sm img-fluid dropdown-toggle"}
                                 className={`shadow shadow-sm img-fluid dropdown-toggle ${zoom?style.profilImgZoom:'rounded-circle mx-2'}`}
                                 data-bs-toggle="dropdown"
                                 aria-expanded="false"

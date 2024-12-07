@@ -7,7 +7,7 @@ const Search = () => {
     const { search, searchText, searchResult, HandleSearch } = Context
 
     return <>
-        <div className="modal fade" id="searchModal" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div className="modal animate__animated animate__bounceIn" id="searchModal" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header shadow shadow-sm">
@@ -27,7 +27,6 @@ const Search = () => {
                         }
                         {searchResult.length == 0 && <p className="text-center">Aucun résultat trouvé..</p>}
                     </div>
-
                 </div>
             </div>
         </div>

@@ -5,7 +5,6 @@ import Profil from "../components/Dashboard/Modals/Profil";
 
 import style from "../assets/css/modules/AdminLayout.module.css"
 
-import img1 from "../assets/images/pub1.jpg";
 import logo from "../assets/images/logo.png";
 
 import PublicityComponent from "../components/PublicityComponent";
@@ -13,19 +12,20 @@ import PublicityComponent from "../components/PublicityComponent";
 import { useGlobalContext } from "../Context";
 import InvitationComponent from "../components/InvitationComponent";
 import { Link } from "react-router-dom";
+import ContactComponent from "../components/ContactComponent";
 
 function AdminLayout({ component, icon, title }) {
 
-    const { publicities, invitations, sideBarLinks, HandleSideBarNavigateLink } = useGlobalContext()
+    const {contacts, publicities, invitations, sideBarLinks, HandleSideBarNavigateLink } = useGlobalContext()
     return (
         <>
             <AdminHeader />
             <SideBar />
             <div className="row" id="admin-content">
-                <div className="col-md-2 shadow shadow-sm roundered p-3 d-none d-md-block">
-                    <div className="list-group bg-white p-2 shadow shadow-sm w-100" id="">
+                <div className="col-md-2 bg_secondary shadow shadow-sm roundered p-3 d-none d-md-block">
+                    {/* LE MENU */}
+                    <div className="list-group bg-white p-2 card shadow shadow-sm w-100" id="">
                         <p className="text-center"><img src={logo} width={50} alt="" srcSet="" /></p>
-                        
                         {
                             sideBarLinks.map((item) => (
                                 <Link
@@ -39,17 +39,23 @@ function AdminLayout({ component, icon, title }) {
                             ))
                         }
                     </div>
+
+                    {/* LES CONTACTS */}
+                    <hr />
+                    <h6 className="text-left text-upercase"><i className="bi bi-calendar-event"></i> VOS CONTACTS</h6>
+                    {
+                        contacts.map((contact) => <ContactComponent key={contact.id} contact={contact} />)
+                    }
                 </div>
                 <div className="col-md-8">
                     <div className={`bg-white shadow shadow-sm p-3 ` + style.content}>
                         <h5 className={`text-center border-bottom shadow shadow-sm py-1 ` + style.contentTitle}>{icon} {title}</h5>
-
                         <div className={style.component}>
                             {component}
                         </div>
                     </div>
                 </div>
-                <div className="col-md-2 shadow shadow-sm roundered d-none d-md-block py-2">
+                <div className="col bg_secondary-md-2 shadow shadow-sm roundered d-none d-md-block py-2">
                     {/* les publicites */}
                     <h6 className="text-left text-uppercase"><i className="bi bi-megaphone"></i> Publicités</h6>
                     {
@@ -63,7 +69,6 @@ function AdminLayout({ component, icon, title }) {
                     }
                 </div>
             </div>
-
 
             {/* PROFIL MODAL */}
             <Profil />

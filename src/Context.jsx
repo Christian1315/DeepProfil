@@ -84,39 +84,39 @@ const AppProvider = ({ children }) => {
             id: 1,
             typeId: 1,
             text: "GOGO Christian",
-            type:'utilisateur'
+            type: 'utilisateur'
         },
         {
             id: 2,
             typeId: 2,
             text: "SEDEGNAN Florent",
-            type:'utilisateur'
+            type: 'utilisateur'
         },
         {
             id: 3,
             typeId: 3,
             text: "SETOH Nadège",
-            type:'utilisateur'
+            type: 'utilisateur'
         },
         {
             id: 4,
             typeId: 4,
             text: "DEGUI Martine",
-            type:'publication'
+            type: 'publication'
         },
         {
             id: 5,
             typeId: 5,
             text: "GOGO Dodji",
-            type:'publication'
+            type: 'publication'
         }
     ])
     const [searchResult, setSearchResult] = useState(searchResultInitial)
     const HandleSearch = (e) => {
         const text = e.target.value
         text.length != 0 ? setSearch(true) : setSearch(false)
-        const result = searchResult.filter((item)=> Object.values(item).join('').toLocaleLowerCase().includes(text.toLocaleLowerCase()))
-        text.length != 0 ?setSearchResult(result):setSearchResult(searchResultInitial)
+        const result = searchResult.filter((item) => Object.values(item).join('').toLocaleLowerCase().includes(text.toLocaleLowerCase()))
+        text.length != 0 ? setSearchResult(result) : setSearchResult(searchResultInitial)
     }
 
     // ####### PROFIL MODAL ######
@@ -133,13 +133,13 @@ const AppProvider = ({ children }) => {
     const [notifications, setNotifications] = useState([
         {
             id: 1,
-            statut: 'new',
+            statut: 'old',
             title: 'Notification 1',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, deleniti quibusdam? Laudantium at distinctio, rem, dolorum reprehenderit animi ipsa voluptas veniam nihil, recusandae incidunt velit repellat eum! Libero, rem quo!'
         },
         {
             id: 2,
-            statut: 'new',
+            statut: 'old',
             title: 'Notification 2',
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, deleniti quibusdam? Laudantium at distinctio, rem, dolorum reprehenderit animi ipsa voluptas veniam nihil, recusandae incidunt velit repellat eum! Libero, rem quo!'
         },
@@ -174,6 +174,8 @@ const AppProvider = ({ children }) => {
             content: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, deleniti quibusdam? Laudantium at distinctio, rem, dolorum reprehenderit animi ipsa voluptas veniam nihil, recusandae incidunt velit repellat eum! Libero, rem quo!'
         }
     ])
+    notifications.sort((a, b) => a.statut.localeCompare(b.statut))
+
     const HandleNotificationClick = (id) => {
         var newNotifications = notifications.map((item) => (
             id == parseInt(item.id) ?
@@ -182,60 +184,77 @@ const AppProvider = ({ children }) => {
         ))
 
         setNotifications(newNotifications)
-
-        // return Navigate(`/notification-detail/:${id}`)
     }
 
     // ###### PUBLICITES
-    const [publicities,setPublicities] = useState([
+    const [publicities, setPublicities] = useState([
         {
-            id:1,
-            title:'Publicité 1',
-            content:'Lorem ipsum ...',
-            img:img1
+            id: 1,
+            title: 'Publicité 1',
+            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolorum veniam voluptate numquam, consequatur et cumque facere sunt iste doloribus impedit? Reprehenderit error commodi corrupti est cumque accusantium perspiciatis delectus.',
+            img: img1
         },
         {
-            id:2,
-            title:'Publicité 2',
-            content:'Lorem ipsum ...',
-            img:img1
+            id: 2,
+            title: 'Publicité 2',
+            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolorum veniam voluptate numquam, consequatur et cumque facere sunt iste doloribus impedit? Reprehenderit error commodi corrupti est cumque accusantium perspiciatis delectus.',
+            img: img1
         },
         {
-            id:3,
-            title:'Publicité 3',
-            content:'Lorem ipsum ...',
-            img:img1
+            id: 3,
+            title: 'Publicité 3',
+            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolorum veniam voluptate numquam, consequatur et cumque facere sunt iste doloribus impedit? Reprehenderit error commodi corrupti est cumque accusantium perspiciatis delectus.',
+            img: img1
         }
     ])
 
     // ###### INVITATIONS
-    const [invitations,setInvitations] = useState([
+    const [invitations, setInvitations] = useState([
         {
-            id:1,
-            since:'2j',
-            user:{
-                id:1,
-                img:img1,
-                name:'User 1'
+            id: 1,
+            since: '2j',
+            user: {
+                id: 1,
+                img: img1,
+                name: 'User 1'
             }
         },
         {
-            id:2,
-            since:'3j',
-            user:{
-                id:2,
-                img:img1,
-                name:'User 2'
+            id: 2,
+            since: '3j',
+            user: {
+                id: 2,
+                img: img1,
+                name: 'User 2'
             }
         },
         {
-            id:4,
-            since:'4j',
-            user:{
-                id:4,
-                img:img1,
-                name:'User 4'
+            id: 4,
+            since: '4j',
+            user: {
+                id: 4,
+                img: img1,
+                name: 'User 4'
             }
+        }
+    ])
+
+    // ###### CONTACTS
+    const [contacts, setContacts] = useState([
+        {
+            id: 1,
+            img: img1,
+            name: 'Contact 1'
+        },
+        {
+            id: 2,
+            img: img1,
+            name: 'Contact 2'
+        },
+        {
+            id: 3,
+            img: img1,
+            name: 'Contact 3'
         }
     ])
 
@@ -248,6 +267,8 @@ const AppProvider = ({ children }) => {
             publicities,
 
             invitations,
+
+            contacts,
 
             login,
             loginText,

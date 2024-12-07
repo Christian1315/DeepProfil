@@ -6,6 +6,7 @@ import Pagination from "../Pagination"
 const Notifications = () => {
 
     const { notifications, HandleNotificationClick } = useGlobalContext()
+    
     const itemsBlock = (items) => (
         <ol className="list-group list-group-numbered">
             {
