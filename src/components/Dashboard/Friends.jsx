@@ -1,43 +1,20 @@
 import profil from "../../assets/images/gogo.png";
+import me from "../../assets/images/me.jpg";
 
 const Friends = () => {
 
     return <>
         <div class="row">
-            <div class="col-sm-3 mb-3 mb-sm-0">
+            <div className="col-md-3">
                 <div class="card">
-                    <div class="card-body">
-                        <h6 class="card-title"><img src={profil} width={30} height={30} alt="" srcSet="" /> Special title treatment</h6>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-3">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Special title treatment</h5>
-                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
+                    <img src={me} className="card-img-top" alt="..."/>
+                        <div class="card-body">
+                            <h5 className="text-left">Card title</h5>
+                            <p className="text-left">
+                                <img src={profil} width={20} className="shadow shadow-sm bordered rounded-circle" alt="" srcSet="" /> <span className="text-secondary"> 32 ami(e)s en communs</span>
+                            </p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
                 </div>
             </div>
         </div>

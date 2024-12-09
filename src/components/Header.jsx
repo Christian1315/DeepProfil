@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 
 const Header = () => {
@@ -7,9 +8,9 @@ const Header = () => {
                 <div class="col-md-12   px-0 mx-0">
                     <nav class="navbar navbar-expand-lg bg-light">
                         <div class="container-fluid">
-                            <a class="navbar-brand" href="/">
+                            <Link class="navbar-brand" to="/">
                                 <img src={logo} class="img-fluid logo" alt="" srcset="" />
-                            </a>
+                            </Link>
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">

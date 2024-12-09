@@ -1,20 +1,23 @@
-
-._card{
+._card {
     border: 5px solid #fff;
     border-radius: 10px;
     align-items: center;
     background-color: #f6f6f6;
 }
 
-._card img{
+._card:hover {
+    background-color: #fff!important;
+}
+
+._card img {
     margin-right: 10px;
 }
 
-.name{
+.name {
     font-size: 10px;
     font-weight: bold;
 }
 
-._card i{
+._card i {
     cursor: pointer;
 }

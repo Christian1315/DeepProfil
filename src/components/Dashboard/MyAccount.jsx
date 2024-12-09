@@ -5,13 +5,14 @@ import profil from "../../assets/images/gogo.png";
 const MyAccount = () => {
 
     return <>
-        <p className="text-center">
-            <label htmlFor="avatar">
-                <img src={profil} width={80} className={`img-fluid rounded-circle shadow ` + style.profilImg} title="Cliquez pour uploader" alt="" srcSet="" />
-            </label>
-        </p>
-        <div className="row">
-            <div className="col-12">
+        <div className="row ">
+            <div className="col-2"></div>
+            <div className="col-8 shadow shadow-sm my-2 py-2 rounded">
+                <p className="text-center">
+                    <label htmlFor="avatar">
+                        <img src={profil} width={80} className={`img-fluid rounded-circle shadow ` + style.profilImg} title="Cliquez pour uploader" alt="" srcSet="" />
+                    </label>
+                </p>
                 <form className="">
                     <div className="row">
                         <div className="col-md-6">
@@ -73,6 +74,8 @@ const MyAccount = () => {
                     </div>
                 </form>
             </div>
+            <div className="col-2"></div>
+
         </div>
     </>
 }

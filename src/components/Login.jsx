@@ -10,7 +10,7 @@ const Login = () => {
         <div className="row">
             <div className="col-md-1"></div>
             <div className="col-md-10">
-                <form className="home-form rounded shadow-lg sign-up-form">
+                <form className=" rounded shadow-lg sign-up-form">
                     <div className="mb-3 text-center">
                         <img src={logo} id="login_logo" alt="" srcSet="" />
                     </div>

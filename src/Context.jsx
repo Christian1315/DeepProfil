@@ -239,22 +239,22 @@ const AppProvider = ({ children }) => {
         }
     ])
 
-    // ###### CONTACTS
-    const [contacts, setContacts] = useState([
+    // ###### FRIENDS (AMIS)
+    const [friends, setFriends] = useState([
         {
             id: 1,
             img: img1,
-            name: 'Contact 1'
+            name: 'GOGO Christian'
         },
         {
             id: 2,
             img: img1,
-            name: 'Contact 2'
+            name: 'SEDEGNAN Florent'
         },
         {
             id: 3,
             img: img1,
-            name: 'Contact 3'
+            name: 'SETOH Nadège'
         }
     ])
 
@@ -268,7 +268,7 @@ const AppProvider = ({ children }) => {
 
             invitations,
 
-            contacts,
+            friends,
 
             login,
             loginText,

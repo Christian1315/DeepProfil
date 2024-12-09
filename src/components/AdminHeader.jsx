@@ -21,7 +21,9 @@ const AdminHeader = () => {
                                 style={{ width: 30, height: 30, fontSize: 10 }}
                             />
                         </a>
-                        <img src={logo} width={"50px"} className="d-none d-md-block" alt="" srcSet="" />
+                        <Link to={'/admin'} >
+                            <img src={logo} width={"50px"} className="d-none d-md-block" alt="" srcSet="" />
+                        </Link>
                         <input type="button" name="" value="Recherche ..." className="form-control w-50 searchBar" data-bs-toggle="modal" data-bs-target="#searchModal" />
                         <div id="_navbarSupportedContent" style={{ justifyContent: "space-between" }}>
                             <Link to={"/notifications"} className="btn btn-sm rounded-circle p-1 px-1 mx-2 shadow shadow-sm text-blue"><i className="bi bi-bell"></i> <small className="text-danger bg-light" style={{ position: "absolute", marginLeft: -8, marginTop: 5 }}>0{newNotifications.length}</small> </Link>

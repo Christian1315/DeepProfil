@@ -7,21 +7,22 @@ import style from "../assets/css/modules/AdminLayout.module.css"
 
 import logo from "../assets/images/logo.png";
 
-import PublicityComponent from "../components/PublicityComponent";
+import PublicityComponent from "../components/Dashboard/PublicityComponent";
 
 import { useGlobalContext } from "../Context";
-import InvitationComponent from "../components/InvitationComponent";
+import InvitationComponent from "../components/Dashboard/InvitationComponent";
 import { Link } from "react-router-dom";
-import ContactComponent from "../components/ContactComponent";
+import ContactComponent from "../components/Dashboard/FriendComponent";
+import FriendComponent from "../components/Dashboard/FriendComponent";
 
 function AdminLayout({ component, icon, title }) {
 
-    const {contacts, publicities, invitations, sideBarLinks, HandleSideBarNavigateLink } = useGlobalContext()
+    const { friends, publicities, invitations, sideBarLinks, HandleSideBarNavigateLink } = useGlobalContext()
     return (
         <>
             <AdminHeader />
             <SideBar />
-            <div className="row" id="admin-content">
+            <div className="row" id="admin-content" style={{ marginBottom: 0 }}>
                 <div className="col-md-2 bg_secondary shadow shadow-sm roundered p-3 d-none d-md-block">
                     {/* LE MENU */}
                     <div className="list-group bg-white p-2 card shadow shadow-sm w-100" id="">
@@ -40,17 +41,17 @@ function AdminLayout({ component, icon, title }) {
                         }
                     </div>
 
-                    {/* LES CONTACTS */}
+                    {/* LES AMIS */}
                     <hr />
                     <h6 className="text-left text-upercase"><i className="bi bi-calendar-event"></i> VOS CONTACTS</h6>
                     {
-                        contacts.map((contact) => <ContactComponent key={contact.id} contact={contact} />)
+                        friends.map((friend) => <FriendComponent key={friend.id} friend={friend} />)
                     }
                 </div>
                 <div className="col-md-8">
                     <div className={`bg-white shadow shadow-sm p-3 ` + style.content}>
                         <h5 className={`text-center border-bottom shadow shadow-sm py-1 ` + style.contentTitle}>{icon} {title}</h5>
-                        <div className={style.component}>
+                        <div className={style.component} style={{ height: window.innerHeight - 200 }}>
                             {component}
                         </div>
                     </div>
