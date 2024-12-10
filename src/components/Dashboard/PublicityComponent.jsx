@@ -15,7 +15,6 @@ function PublicityComponent({ publicity }) {
                         <p className={style.content}>{publicity.content.substring(0, 10)} ...</p>
                     </div>
                 </div>
-
             </div>
         </>
     )

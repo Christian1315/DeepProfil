@@ -8,9 +8,17 @@ import Pagination from "./Pagination.jsx";
 
 function SideBar() {
     const { friends, publicities, invitations, sideBarLinks, HandleSideBarNavigateLink } = useGlobalContext()
-    
-    const itemsBlock = (items) => (
+
+    const itemsBlockFriends = (items) => (
         items.map((item) => <FriendComponent key={item.id} friend={item} />)
+    )
+
+    const itemsBlockInvitations = (items) => (
+        items.map((item) => <InvitationComponent key={item.id} invitation={item} />)
+    )
+
+    const itemsBlockPublications = (items) => (
+        publicities.map((publiciy) => <PublicityComponent key={publiciy.id} publicity={publiciy} />)
     )
 
     return (
@@ -45,7 +53,7 @@ function SideBar() {
                             <Pagination
                                 items={friends}
                                 itemsOnPage={2}
-                                itemsBlock={itemsBlock}
+                                itemsBlock={itemsBlockFriends}
                             />
                         }
                     </div>
@@ -64,13 +72,21 @@ function SideBar() {
                         {/* les publicites */}
                         <h6 className="text-left text-uppercase"><i className="bi bi-megaphone"></i> Publicités</h6>
                         {
-                            publicities.map((publiciy) => <PublicityComponent key={publiciy.id} publicity={publiciy} />)
+                            <Pagination
+                                items={publicities}
+                                itemsOnPage={3}
+                                itemsBlock={itemsBlockPublications}
+                            />
                         }
                         {/* les invitations */}
                         <hr />
                         <h6 className="text-left text-upercase"><i className="bi bi-calendar-event"></i> Invitations</h6>
                         {
-                            invitations.map((invitation) => <InvitationComponent key={invitation.id} invitation={invitation} />)
+                            <Pagination
+                                items={invitations}
+                                itemsOnPage={3}
+                                itemsBlock={itemsBlockInvitations}
+                            />
                         }
                     </div>
                 </div>

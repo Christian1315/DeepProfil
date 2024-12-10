@@ -25,8 +25,17 @@ function AdminLayout({ component, icon, title }) {
     )
 
     const itemsBlockInvitations = (items) => (
-        items.map((item) => <InvitationComponent key={item.id} invitation={item} />)
+        items.map((item) => <InvitationComponent
+            key={item.id}
+            invitation={item}
+
+        />)
     )
+
+    const itemsBlockPublications = (items) => (
+        publicities.map((publiciy) => <PublicityComponent key={publiciy.id} publicity={publiciy} />)
+    )
+
     return (
         <>
             <AdminHeader />
@@ -65,7 +74,7 @@ function AdminLayout({ component, icon, title }) {
                 <div className="col-md-8">
                     <div className={`bg-white shadow shadow-sm p-3 ` + style.content}>
                         <h5 className={`text-center border-bottom shadow shadow-sm py-1 ` + style.contentTitle}>{icon} {title}</h5>
-                        <div className={style.component} style={{ height: window.innerHeight }}>
+                        <div className={style.component} style={{ height: window.innerHeight - 0.2 * window.innerHeight }}>
                             {component}
                         </div>
                     </div>
@@ -74,7 +83,11 @@ function AdminLayout({ component, icon, title }) {
                     {/* les publicites */}
                     <h6 className="text-left text-uppercase"><i className="bi bi-megaphone"></i> Publicités</h6>
                     {
-                        publicities.map((publiciy) => <PublicityComponent key={publiciy.id} publicity={publiciy} />)
+                        <Pagination
+                            items={publicities}
+                            itemsOnPage={3}
+                            itemsBlock={itemsBlockPublications}
+                        />
                     }
                     {/* les invitations */}
                     <hr />

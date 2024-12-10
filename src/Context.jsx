@@ -238,6 +238,10 @@ const AppProvider = ({ children }) => {
             }
         }
     ])
+    const [currentInvitation,setCurrentInvitation]=useState({user:{name:'gogo'}})
+    const InvitationClickHandle = (invitation) => {
+        setCurrentInvitation(invitation)
+    }
 
     // ###### FRIENDS (AMIS)
     const [friends, setFriends] = useState([
@@ -298,6 +302,10 @@ const AppProvider = ({ children }) => {
             communFriendsFirstImg:profil,
         }
     ])
+    const [currentFriend,setCurrentFriend]=useState({})
+    const FriendClickHandle = (friend) => {
+        setCurrentFriend(friend)
+    }
 
     // RENDERING
     return (
@@ -308,8 +316,14 @@ const AppProvider = ({ children }) => {
             publicities,
 
             invitations,
+            currentInvitation,
+            setCurrentInvitation,
+            InvitationClickHandle,
 
             friends,
+            currentFriend,
+            setCurrentFriend,
+            FriendClickHandle,
 
             login,
             loginText,

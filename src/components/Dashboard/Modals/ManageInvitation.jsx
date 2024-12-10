@@ -1,12 +1,14 @@
+import { useGlobalContext } from "../../../Context"
 
 const ManageInvitation = () => {
+    const { currentInvitation} = useGlobalContext()
 
     return <>
         <div className="modal animate__animated animate__bounceIn" id="manageInvitationModal" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header shadow shadow-sm">
-                        <h6>Valider une invitation</h6>
+                        <h6>Valider <span className="text-blue"> {currentInvitation && currentInvitation.user.name}</span>  </h6>
                         <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div className="modal-body">
