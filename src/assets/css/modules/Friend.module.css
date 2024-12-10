@@ -1,0 +1,24 @@
+._card {
+    border: solid 3px #f6f6f6;
+    border-radius: 10px;
+}
+
+._card .profilImg{
+    width: 100%;
+    height: 20vh;
+}
+
+._card .name{
+    font-size: 15px;
+    font-weight: bold;
+    display: block;
+    text-transform: capitalize;
+}
+
+._card .friendsNbr{
+    font-size: 10px;
+}
+
+.profilCommun{
+    border:solid 2px blue;
+}

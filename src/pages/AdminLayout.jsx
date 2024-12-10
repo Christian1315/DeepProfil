@@ -12,12 +12,21 @@ import PublicityComponent from "../components/Dashboard/PublicityComponent";
 import { useGlobalContext } from "../Context";
 import InvitationComponent from "../components/Dashboard/InvitationComponent";
 import { Link } from "react-router-dom";
-import ContactComponent from "../components/Dashboard/FriendComponent";
 import FriendComponent from "../components/Dashboard/FriendComponent";
+import Pagination from "../components/Pagination";
+import ManageInvitation from "../components/Dashboard/Modals/ManageInvitation";
 
 function AdminLayout({ component, icon, title }) {
 
     const { friends, publicities, invitations, sideBarLinks, HandleSideBarNavigateLink } = useGlobalContext()
+
+    const itemsBlockFriends = (items) => (
+        items.map((item) => <FriendComponent key={item.id} friend={item} />)
+    )
+
+    const itemsBlockInvitations = (items) => (
+        items.map((item) => <InvitationComponent key={item.id} invitation={item} />)
+    )
     return (
         <>
             <AdminHeader />
@@ -44,14 +53,19 @@ function AdminLayout({ component, icon, title }) {
                     {/* LES AMIS */}
                     <hr />
                     <h6 className="text-left text-upercase"><i className="bi bi-calendar-event"></i> VOS CONTACTS</h6>
+
                     {
-                        friends.map((friend) => <FriendComponent key={friend.id} friend={friend} />)
+                        <Pagination
+                            items={friends}
+                            itemsOnPage={3}
+                            itemsBlock={itemsBlockFriends}
+                        />
                     }
                 </div>
                 <div className="col-md-8">
                     <div className={`bg-white shadow shadow-sm p-3 ` + style.content}>
                         <h5 className={`text-center border-bottom shadow shadow-sm py-1 ` + style.contentTitle}>{icon} {title}</h5>
-                        <div className={style.component} style={{ height: window.innerHeight - 200 }}>
+                        <div className={style.component} style={{ height: window.innerHeight }}>
                             {component}
                         </div>
                     </div>
@@ -65,8 +79,13 @@ function AdminLayout({ component, icon, title }) {
                     {/* les invitations */}
                     <hr />
                     <h6 className="text-left text-upercase"><i className="bi bi-calendar-event"></i> Invitations</h6>
+
                     {
-                        invitations.map((invitation) => <InvitationComponent key={invitation.id} invitation={invitation} />)
+                        <Pagination
+                            items={invitations}
+                            itemsOnPage={3}
+                            itemsBlock={itemsBlockInvitations}
+                        />
                     }
                 </div>
             </div>
@@ -76,6 +95,9 @@ function AdminLayout({ component, icon, title }) {
 
             {/* SEARCH MODAL */}
             <Search />
+
+            {/* MANAGE INVATION */}
+            <ManageInvitation />
         </>
     )
 }

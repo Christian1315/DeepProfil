@@ -4,6 +4,7 @@
     border-radius: 10px;
     align-items: center;
     background-color: #f6f6f6;
+    cursor: pointer;
 }
 
 ._card img{

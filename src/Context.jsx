@@ -2,6 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
 
 import img1 from "./assets/images/pub1.jpg";
+import profil from "./assets/images/gogo.png";
+import me from "./assets/images/me.jpg";
 
 const AppContext = React.createContext()
 
@@ -65,7 +67,6 @@ const AppProvider = ({ children }) => {
         }
 
     ])
-
     const HandleSideBarNavigateLink = (id) => {
         const newLinks = sideBarLinks.map((item) => (
             item.id == parseInt(id) ?
@@ -175,7 +176,6 @@ const AppProvider = ({ children }) => {
         }
     ])
     notifications.sort((a, b) => a.statut.localeCompare(b.statut))
-
     const HandleNotificationClick = (id) => {
         var newNotifications = notifications.map((item) => (
             id == parseInt(item.id) ?
@@ -243,18 +243,59 @@ const AppProvider = ({ children }) => {
     const [friends, setFriends] = useState([
         {
             id: 1,
-            img: img1,
-            name: 'GOGO Christian'
+            img: me,
+            name: 'GOGO Christian',
+            communFriends:3,
+            communFriendsFirstImg:profil,
         },
         {
             id: 2,
             img: img1,
-            name: 'SEDEGNAN Florent'
+            name: 'SEDEGNAN Florent',
+            communFriends:2,
+            communFriendsFirstImg:profil,
         },
         {
             id: 3,
+            img: me,
+            name: 'SETOH Nadège',
+            communFriends:1,
+            communFriendsFirstImg:profil,
+        },
+        {
+            id: 4,
             img: img1,
-            name: 'SETOH Nadège'
+            name: 'SEDEGNAN Florent',
+            communFriends:2,
+            communFriendsFirstImg:profil,
+        },
+        {
+            id: 5,
+            img: img1,
+            name: 'SEDEGNAN Florent',
+            communFriends:2,
+            communFriendsFirstImg:profil,
+        },
+        {
+            id: 6,
+            img: img1,
+            name: 'SEDEGNAN Florent',
+            communFriends:2,
+            communFriendsFirstImg:profil,
+        },
+        {
+            id: 7,
+            img: me,
+            name: 'SETOH Nadège',
+            communFriends:1,
+            communFriendsFirstImg:profil,
+        },
+        {
+            id: 8,
+            img: me,
+            name: 'SETOH Nadège',
+            communFriends:1,
+            communFriendsFirstImg:profil,
         }
     ])
 

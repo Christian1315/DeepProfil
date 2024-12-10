@@ -1,23 +1,18 @@
-import profil from "../../assets/images/gogo.png";
-import me from "../../assets/images/me.jpg";
+import { useGlobalContext } from "../../Context"
+import Friend from "./Friend"
+import CommunFriends from "./Modals/CommunFriends"
 
 const Friends = () => {
-
+    const { friends } = useGlobalContext()
     return <>
-        <div class="row">
-            <div className="col-md-3">
-                <div class="card">
-                    <img src={me} className="card-img-top" alt="..."/>
-                        <div class="card-body">
-                            <h5 className="text-left">Card title</h5>
-                            <p className="text-left">
-                                <img src={profil} width={20} className="shadow shadow-sm bordered rounded-circle" alt="" srcSet="" /> <span className="text-secondary"> 32 ami(e)s en communs</span>
-                            </p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
+        <div className="row">
+            {friends.map((friend) => (
+                <div key={friend.id} className="col-md-3 col-sm-4 col-xs-6">
+                    <Friend  friend={friend} />
                 </div>
-            </div>
+            ))}
         </div>
+        <CommunFriends/>
     </>
 }
 

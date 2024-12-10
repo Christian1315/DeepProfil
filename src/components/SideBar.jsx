@@ -4,9 +4,14 @@ import { useGlobalContext } from "../Context.jsx";
 import PublicityComponent from "./Dashboard/PublicityComponent.jsx";
 import InvitationComponent from "./Dashboard/InvitationComponent.jsx";
 import FriendComponent from "./Dashboard/FriendComponent.jsx";
+import Pagination from "./Pagination.jsx";
 
 function SideBar() {
     const { friends, publicities, invitations, sideBarLinks, HandleSideBarNavigateLink } = useGlobalContext()
+    
+    const itemsBlock = (items) => (
+        items.map((item) => <FriendComponent key={item.id} friend={item} />)
+    )
 
     return (
         <>
@@ -37,7 +42,11 @@ function SideBar() {
                         <hr />
                         <h6 className="text-left text-upercase"><i className="bi bi-calendar-event"></i> VOS CONTACTS</h6>
                         {
-                            friends.map((friend) => <FriendComponent key={friend.id} friend={friend} />)
+                            <Pagination
+                                items={friends}
+                                itemsOnPage={2}
+                                itemsBlock={itemsBlock}
+                            />
                         }
                     </div>
                 </div>

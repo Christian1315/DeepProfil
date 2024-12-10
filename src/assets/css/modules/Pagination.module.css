@@ -5,12 +5,10 @@
 
 .liClass li {
     list-style-type: none;
-    margin-inline: 10px;
-    /* color: #0477da; */
+    margin-inline: 5px;
 }
 
 .liClass li a {
-    /* background-color: RGBA(108, 117, 125, var(--bs-bg-opacity, 1)); */
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
     box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
     --bs-badge-padding-x: 0.65em;

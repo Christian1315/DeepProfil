@@ -9,9 +9,6 @@
 }
 
 .component {
-    /* max-height: 100vh; */
-    /* overflow-y: scroll; */
-    /* overflow: auto; */
     overflow-x: hidden;
 }
 
