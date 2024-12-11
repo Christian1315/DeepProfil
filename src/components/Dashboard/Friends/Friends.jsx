@@ -1,7 +1,7 @@
 import { useState } from "react"
-import { useGlobalContext } from "../../Context"
 import Friend from "./Friend"
-import CommunFriends from "./Modals/CommunFriends"
+import CommunFriends from "../Modals/CommunFriends"
+import { useGlobalContext } from "../../../Context"
 
 const Friends = () => {
     const { friends,FriendClickHandle } = useGlobalContext()

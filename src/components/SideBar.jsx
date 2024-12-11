@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../Context.jsx";
 import PublicityComponent from "./Dashboard/PublicityComponent.jsx";
 import InvitationComponent from "./Dashboard/InvitationComponent.jsx";
-import FriendComponent from "./Dashboard/FriendComponent.jsx";
+import FriendComponent from "./Dashboard/Friends/FriendComponent.jsx";
 import Pagination from "./Pagination.jsx";
 
 function SideBar() {

@@ -9,12 +9,12 @@ import logo from "../assets/images/logo.png";
 
 import PublicityComponent from "../components/Dashboard/PublicityComponent";
 
-import { useGlobalContext } from "../Context";
 import InvitationComponent from "../components/Dashboard/InvitationComponent";
 import { Link } from "react-router-dom";
-import FriendComponent from "../components/Dashboard/FriendComponent";
+import FriendComponent from "../components/Dashboard/Friends/FriendComponent";
 import Pagination from "../components/Pagination";
 import ManageInvitation from "../components/Dashboard/Modals/ManageInvitation";
+import { useGlobalContext } from "../Context";
 
 function AdminLayout({ component, icon, title }) {
 
@@ -62,7 +62,6 @@ function AdminLayout({ component, icon, title }) {
                     {/* LES AMIS */}
                     <hr />
                     <h6 className="text-left text-upercase"><i className="bi bi-calendar-event"></i> VOS CONTACTS</h6>
-
                     {
                         <Pagination
                             items={friends}
@@ -74,12 +73,12 @@ function AdminLayout({ component, icon, title }) {
                 <div className="col-md-8">
                     <div className={`bg-white shadow shadow-sm p-3 ` + style.content}>
                         <h5 className={`text-center border-bottom shadow shadow-sm py-1 ` + style.contentTitle}>{icon} {title}</h5>
-                        <div className={style.component} style={{ height: window.innerHeight - 0.2 * window.innerHeight }}>
+                        <div className={style.component} style={{ height: window.innerHeight - 0.1 * window.innerHeight }}>
                             {component}
                         </div>
                     </div>
                 </div>
-                <div className="col bg_secondary-md-2 shadow shadow-sm roundered d-none d-md-block py-2">
+                <div className="col-md-2 bg_secondary shadow shadow-sm roundered d-none d-md-block py-2">
                     {/* les publicites */}
                     <h6 className="text-left text-uppercase"><i className="bi bi-megaphone"></i> Publicités</h6>
                     {

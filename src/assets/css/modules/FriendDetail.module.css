@@ -1,0 +1,44 @@
+.banner{
+    height: 50vh;
+    border: solid 2px #f6f6f6;
+}
+
+.profil{
+    width: 70px;
+    height: 70px;
+    border: solid 5px #0477da;
+    position: relative;
+    margin-top: -20px;
+    margin-left: 50px;
+}
+
+.friendName{
+    font-size: 20px;
+    text-transform: capitalize;
+}
+
+.navidationBar{
+    display: flex;
+    margin-top: 20px;
+    /* overflow-x: scroll; */
+}
+
+.navidationBar a{
+    color: #000;
+    margin-right: 10px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+.active{
+    color: #0477da!important;
+    border-bottom: 2px solid#0477da!important ;
+}
+
+.navigationContent{
+    margin-block: 20px;
+    border: 2px solid #f6f6f6;
+    padding: 10px;
+    border-radius: 10px;
+}

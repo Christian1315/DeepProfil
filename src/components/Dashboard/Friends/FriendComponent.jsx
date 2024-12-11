@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import style from "../../assets/css/modules/ContactComponent.module.css"
-import profil from "../../assets/images/gogo.png";
+import style from "../../../assets/css/modules/ContactComponent.module.css"
+import profil from "../../../assets/images/gogo.png";
 
 function FriendComponent({ friend }) {
 

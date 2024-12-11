@@ -238,7 +238,7 @@ const AppProvider = ({ children }) => {
             }
         }
     ])
-    const [currentInvitation,setCurrentInvitation]=useState({user:{name:'gogo'}})
+    const [currentInvitation, setCurrentInvitation] = useState({ user: { name: 'gogo' } })
     const InvitationClickHandle = (invitation) => {
         setCurrentInvitation(invitation)
     }
@@ -248,65 +248,317 @@ const AppProvider = ({ children }) => {
         {
             id: 1,
             img: me,
+            banner: profil,
             name: 'GOGO Christian',
-            communFriends:3,
-            communFriendsFirstImg:profil,
+            communFriends: [
+                {
+                    id: 1,
+                    img: me,
+                    banner: profil,
+                    name: "Ami 1 commun"
+                },
+                {
+                    id: 2,
+                    img: me,
+                    banner: profil,
+                    name: "Ami 2 commun"
+                }
+            ],
+
         },
         {
             id: 2,
             img: img1,
+            banner: profil,
             name: 'SEDEGNAN Florent',
-            communFriends:2,
-            communFriendsFirstImg:profil,
+            communFriends: [
+                {
+                    id: 1,
+                    img: me,
+                    banner: img1,
+                    name: "Florent Ami 1 commun"
+                },
+                {
+                    id: 2,
+                    img: me,
+                    banner: profil,
+                    name: "Florent Ami 2 commun"
+                },
+                {
+                    id: 3,
+                    img: me,
+                    banner: profil,
+                    name: "Florent Ami 3 commun"
+                },
+                {
+                    id: 4,
+                    img: me,
+                    banner: img1,
+                    name: "Florent Ami 4 commun"
+                }
+            ],
+
         },
         {
             id: 3,
             img: me,
             name: 'SETOH Nadège',
-            communFriends:1,
-            communFriendsFirstImg:profil,
+            banner: profil,
+            communFriends: [
+                {
+                    id: 1,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 1 commun"
+                },
+                {
+                    id: 2,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 2 commun"
+                },
+                {
+                    id: 3,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 3 commun"
+                },
+                {
+                    id: 4,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 4 commun"
+                }
+            ],
+
         },
         {
             id: 4,
             img: img1,
+            banner: profil,
             name: 'SEDEGNAN Florent',
-            communFriends:2,
-            communFriendsFirstImg:profil,
+            communFriends: [
+                {
+                    id: 1,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 1 commun"
+                },
+                {
+                    id: 2,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 2 commun"
+                },
+                {
+                    id: 3,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 3 commun"
+                },
+                {
+                    id: 4,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 4 commun"
+                }
+            ],
         },
         {
             id: 5,
             img: img1,
+            banner: profil,
             name: 'SEDEGNAN Florent',
-            communFriends:2,
-            communFriendsFirstImg:profil,
+            communFriends: [
+                {
+                    id: 1,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 1 commun"
+                },
+                {
+                    id: 2,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 2 commun"
+                },
+                {
+                    id: 3,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 3 commun"
+                },
+                {
+                    id: 4,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 4 commun"
+                }
+            ],
+
         },
         {
             id: 6,
             img: img1,
+            banner: profil,
             name: 'SEDEGNAN Florent',
-            communFriends:2,
-            communFriendsFirstImg:profil,
+            communFriends: [
+                {
+                    id: 1,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 1 commun"
+                },
+                {
+                    id: 2,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 2 commun"
+                },
+                {
+                    id: 3,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 3 commun"
+                },
+                {
+                    id: 4,
+                    img: me,
+                    banner: profil,
+                    name: "SEDEGNAN Ami 4 commun"
+                }
+            ],
+
         },
         {
             id: 7,
             img: me,
             name: 'SETOH Nadège',
-            communFriends:1,
-            communFriendsFirstImg:profil,
+            banner: profil,
+            communFriends: [
+                {
+                    id: 1,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 1 commun"
+                },
+                {
+                    id: 2,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 2 commun"
+                },
+                {
+                    id: 3,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 3 commun"
+                },
+                {
+                    id: 4,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 4 commun"
+                }
+            ],
+
         },
         {
             id: 8,
             img: me,
+            banner: img1,
             name: 'SETOH Nadège',
-            communFriends:1,
-            communFriendsFirstImg:profil,
+            communFriends: [
+                {
+                    id: 1,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 1 commun"
+                },
+                {
+                    id: 2,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 2 commun"
+                },
+                {
+                    id: 3,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 3 commun"
+                },
+                {
+                    id: 4,
+                    img: me,
+                    banner: profil,
+                    name: "Nadège Ami 4 commun"
+                }
+            ],
+
         }
     ])
-    const [currentFriend,setCurrentFriend]=useState({})
+    const [currentFriend, setCurrentFriend] = useState({
+        id: 8,
+        img: me,
+        name: 'SETOH Nadège',
+        communFriends: [
+            {
+                id: 1,
+                img: me,
+                name: "Nadège Ami 1 commun"
+            },
+            {
+                id: 2,
+                img: me,
+                name: "Nadège Ami 2 commun"
+            },
+            {
+                id: 3,
+                img: me,
+                name: "Nadège Ami 3 commun"
+            },
+            {
+                id: 4,
+                img: me,
+                name: "Nadège Ami 4 commun"
+            }
+        ],
+
+    })
     const FriendClickHandle = (friend) => {
         setCurrentFriend(friend)
     }
-
+    const [friendDetailNavigations, setFriendDetailNavigations] = useState([
+        {
+            id: 1,
+            text: "Infos personnelles",
+            icon: <i className="bi bi-list"></i>,
+            tag: 'info',
+            active: true
+        },
+        {
+            id: 2,
+            text: "Publications",
+            icon: <i className="bi bi-stickies "></i>,
+            tag: 'pub',
+            active: false
+        },
+        {
+            id: 3,
+            text: "Ami(e)s",
+            icon: <i className="bi bi-people "></i>,
+            tag: 'friend',
+            active: false
+        }
+    ])
+    const [currentFriendDetailNavigation, setCurrentFriendDetailNavigation] = useState(null)
+    const HandleFriendDetailNavigationClick = (navigationId) => {
+        let newNivigations = friendDetailNavigations.map((item) => item.id == parseInt(navigationId) ? { ...item, active: true } : { ...item, active: false })
+        setFriendDetailNavigations(newNivigations)
+        // L'ACTUELLE NAVIGATION
+        let _currentFriendDetailNavigation = friendDetailNavigations.find((item) => item.id == parseInt(navigationId))
+        setCurrentFriendDetailNavigation(_currentFriendDetailNavigation)
+    }
     // RENDERING
     return (
         <AppContext.Provider value={{
@@ -324,6 +576,9 @@ const AppProvider = ({ children }) => {
             currentFriend,
             setCurrentFriend,
             FriendClickHandle,
+            friendDetailNavigations,
+            currentFriendDetailNavigation,
+            HandleFriendDetailNavigationClick,
 
             login,
             loginText,

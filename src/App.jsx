@@ -18,7 +18,7 @@ import "./assets/css/animate.css";
 import "./assets/js/popper.min.js";
 import "./assets/js/bootstrap.min.js";
 
-import Friends from './components/Dashboard/Friends.jsx';
+import Friends from './components/Dashboard/Friends/Friends.jsx';
 import Index from './components/Dashboard/Index.jsx';
 import Chats from './components/Dashboard/Chats.jsx';
 import Notifications from './components/Dashboard/Notifications.jsx';
@@ -27,7 +27,7 @@ import Groups from './components/Dashboard/Groups.jsx';
 import MyAccount from './components/Dashboard/MyAccount.jsx';
 import NotificationsDetail from './components/Dashboard/NotificationsDetail.jsx';
 import _404 from './pages/_404.jsx';
-import FriendDetail from './components/Dashboard/FriendDetail.jsx';
+import FriendDetail from './components/Dashboard/Friends/FriendDetail.jsx';
 
 function App() {
   return (
