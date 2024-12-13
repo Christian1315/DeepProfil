@@ -1,0 +1,9 @@
+.profil{
+    border: 2px solid #0477da;
+}
+
+.action{
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}

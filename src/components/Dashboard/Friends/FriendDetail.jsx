@@ -21,7 +21,7 @@ function FriendDetail() {
 
             <div className="row">
                 <div className="col-12 px-5">
-                    <div className={`d-flex justify-content-between align-items`} ><strong className={style.friendName} >{friend.name}</strong> <Link to={'#'} className="btn btn-sm bg_secondary text-dark"><i className="bi bi-chat-dots"></i> Message</Link></div>
+                    <div className={`d-flex justify-content-between align-items`} ><strong className={style.friendName} >{friend.name}</strong> <Link to={'/chats'} className="btn btn-sm bg_secondary text-dark"><i className="bi bi-chat-dots"></i> Message</Link></div>
 
                     {/* NAVIGATIONS BARRES  */}
                     <div className={style.navidationBar}>

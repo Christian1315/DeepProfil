@@ -22,7 +22,7 @@ import Friends from './components/Dashboard/Friends/Friends.jsx';
 import Index from './components/Dashboard/Index.jsx';
 import Chats from './components/Dashboard/Chats.jsx';
 import Notifications from './components/Dashboard/Notifications.jsx';
-import News from './components/Dashboard/News.jsx';
+import News from './components/Dashboard/News/News.jsx';
 import Groups from './components/Dashboard/Groups.jsx';
 import MyAccount from './components/Dashboard/MyAccount.jsx';
 import NotificationsDetail from './components/Dashboard/NotificationsDetail.jsx';

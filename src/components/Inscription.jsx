@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 
 function Inscription() {
     const [inscription, setInscription] = useState(false)
-    const [inscriptionText,setInscriptionText] = useState("S'inscrire")
+    const [inscriptionText, setInscriptionText] = useState("S'inscrire")
     const makeInscription = () => {
         setInscription(true)
-        setInscriptionText("Inscription en cours ...")                          
+        setInscriptionText("Inscription en cours ...")
     }
 
     return (
@@ -40,22 +40,17 @@ function Inscription() {
                                     <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Ex: Christian" />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="exampleInputEmail1" className="form-label">Groupe de district</label>
-                                    <select name="group" className="form-control" id="">
-                                        <option  value="">Groupe 1</option>
-                                        <option value="">Groupe 2</option>
-                                        <option value="">Groupe 3</option>
-                                        <option value="">Groupe 4</option>
+                                    <label htmlFor="socialStatus" className="form-label">Status social</label>
+                                    <select name="group" className="form-control" id="socialStatus">
+                                        <option value="">Marié.e</option>
+                                        <option value="">Fiancé.e</option>
+                                        <option value="">Cheminant.e</option>
+                                        <option value="">Célibataire(Rien)</option>
                                     </select>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="exampleInputEmail1" className="form-label">District</label>
-                                    <select name="group" className="form-control" id="">
-                                        <option value="">District 1</option>
-                                        <option value="">District 2</option>
-                                        <option value="">District 3</option>
-                                        <option value="">District 4</option>
-                                    </select>
+                                    <label htmlFor="country" className="form-label">Pays</label>
+                                    <input type="text" className="form-control" id="country" placeholder="Bénin .." />
                                 </div>
                             </div>
                             <div className="col-md-6">
