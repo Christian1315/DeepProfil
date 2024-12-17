@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
+import NewComponent from "../../News/NewComponent";
+import { useState } from "react";
 
 const Publications = () => {
 
     return <>
-        <div className={`animate__animated animate__bounceIn`}>
-            <p className="text-center">Publications...</p>
+        <div className={`animate__animated animate__headShake`}>
+            <NewComponent/>
         </div>
     </>
 }

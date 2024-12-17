@@ -11,7 +11,9 @@
   "dependencies": {
     "@coreui/coreui": "^5.2.0",
     "@coreui/react": "^5.4.1",
+    "@wbe/react-video-player": "^2.7.1",
     "react": "^18.2.0",
+    "react-chat-elements": "^12.0.17",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-paginate": "^8.2.0",

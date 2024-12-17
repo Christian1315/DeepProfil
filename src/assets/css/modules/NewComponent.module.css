@@ -1,0 +1,53 @@
+.profil {
+    border: 2px solid #0477da;
+}
+
+.action {
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.reactPub {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reactPub .searchInput{
+    border-radius: 20px!important;
+}
+
+.reactPub span{
+    /* border-radius: 0px 20px  20px 0px; */
+    /* padding: 10px!important; */
+    margin-left: -30px!important;
+    margin-top: 7px;
+    z-index: 1000;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.reactPub .searchInput input {
+    border-radius: 20px 0px 0px 20px;
+} 
+
+.reactLikeBtn {
+    width: 30px;
+    height: 30px;
+    color: #fff;
+}
+
+.reactAction {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reactAction button {
+    margin-inline: 5px;
+}
+
+.commentBlok{
+    margin-block: 20px;
+}

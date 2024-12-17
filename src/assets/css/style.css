@@ -20,6 +20,19 @@ h6 {
     color: rgba(0, 97, 192, 1) !important;
 }
 
+.rce-mbox-reply-border{
+    border-color: #0477da!important;
+}
+
+.rce-mbox-reply-owner{
+    color: #0477da!important;
+}
+
+.commentBlok .rce-citem{
+    border-radius: 10px!important;
+    border-bottom: 2px solid #0477da!important;
+}
+
 svg {
     color: rgba(0, 97, 192, 1) !important;
     font-size: 20px;

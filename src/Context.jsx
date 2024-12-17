@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import { Navigate } from "react-router-dom";
 
 import img1 from "./assets/images/pub1.jpg";
@@ -80,7 +80,7 @@ const AppProvider = ({ children }) => {
     // ######## SEARCH MODAL #####
     const [search, setSearch] = useState(false)
     const [searchText, setSearchText] = useState(null)
-    const [searchResultInitial, setSearchResultInitial] = useState([
+    const searchResultInitial = [
         {
             id: 1,
             typeId: 1,
@@ -111,13 +111,13 @@ const AppProvider = ({ children }) => {
             text: "GOGO Dodji",
             type: 'publication'
         }
-    ])
-    const [searchResult, setSearchResult] = useState(searchResultInitial)
+    ]
+    const [searchResult,setSearchResult] = useState([])
     const HandleSearch = (e) => {
         const text = e.target.value
-        text.length != 0 ? setSearch(true) : setSearch(false)
-        const result = searchResult.filter((item) => Object.values(item).join('').toLocaleLowerCase().includes(text.toLocaleLowerCase()))
-        text.length != 0 ? setSearchResult(result) : setSearchResult(searchResultInitial)
+        text.trim() !== "" ? setSearch(true) : setSearch(false)
+        const result = searchResultInitial.filter((item) => Object.values(item).join('').toLocaleLowerCase().includes(text.toLocaleLowerCase()))
+        setSearchResult(result)
     }
 
     // ####### PROFIL MODAL ######
@@ -264,7 +264,6 @@ const AppProvider = ({ children }) => {
                     name: "Ami 2 commun"
                 }
             ],
-
         },
         {
             id: 2,
