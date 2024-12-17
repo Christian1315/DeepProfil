@@ -12,8 +12,13 @@ const InfoPersos = () => {
                         <li className="list-group-item"><i className="bi bi-textarea-resize"></i> <b>Denomination:</b> COSE</li>
                         <li className="list-group-item"><i className="bi bi-heart"></i> <b>Marié.e: </b><i className="bi bi-x-circle text-danger"></i></li>
                         <li className="list-group-item"><i className="bi bi-person-heart"></i> <b>Fiancé.e: </b><i className="bi bi-check-circle text-blue"></i></li>
+<<<<<<< HEAD
                         <li className="list-group-item"><i className="bi bi-person-hearts"></i> <b>Cheminant.e: </b><i className="bi bi-check-circle text-blue"></i></li>
                         <li className="list-group-item"><i className="bi bi-person-hearts"></i> <b>Célibataire(Rien): </b><i className="bi bi-check-circle text-blue"></i></li>
+=======
+                        <li className="list-group-item"><i className="bi bi-people"></i> <b>Cheminant.e: </b><i className="bi bi-check-circle text-blue"></i></li>
+                        <li className="list-group-item"><i className="bi bi-person"></i> <b>Célibataire(Rien): </b><i className="bi bi-check-circle text-blue"></i></li>
+>>>>>>> da10c8f8ff00381ea7ab54dfba2d58f0ff5425f3
                         <li className="list-group-item"><i className="bi bi-pin-map"></i> <b>Pays:</b> Bénin</li>
                         <li className="list-group-item"><i className="bi bi-geo-alt"></i> <b>Quartier:</b> Togoudo</li>
                     </ul>

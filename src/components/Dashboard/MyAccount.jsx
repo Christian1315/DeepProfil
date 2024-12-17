@@ -42,6 +42,7 @@ const MyAccount = () => {
                                     <option value="">Groupe 4</option>
                                 </select>
                             </div>
+
                             <div className="mb-3">
                                 <label htmlFor="country" className="form-label">Pays</label>
                                 <select name="group" className="form-control" id="country">
