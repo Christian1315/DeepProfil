@@ -52,6 +52,10 @@
     margin-block: 20px;
 }
 
+.commentRow{
+    margin-bottom: 10px;
+}
+
 .replyBtn{
     position: absolute;
     right: 0;
@@ -63,4 +67,13 @@
 .replyInput{
     border: none;
     margin-top: -5px;
+}
+
+.submitReplyBtn{
+    cursor: pointer;
+}
+
+.commentsReplayedBox{
+    max-height: 200px;
+    overflow-y: scroll;
 }

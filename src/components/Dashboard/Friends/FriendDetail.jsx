@@ -4,6 +4,7 @@ import { useGlobalContext } from "../../../Context"
 import Publications from "./FriendDetailComponents/Publications"
 import Friends from "./FriendDetailComponents/Friends"
 import InfoPersos from "./FriendDetailComponents/InfoPersos"
+import BackButton from "../../Buttons/BackButton"
 
 function FriendDetail() {
     const { friends, friendDetailNavigations,currentFriendDetailNavigation, HandleFriendDetailNavigationClick } = useGlobalContext()
@@ -52,7 +53,7 @@ function FriendDetail() {
                         }
                     </div>
                     <p className="text-center mt-5">
-                        <Link to={'/friends'}><i className="bi bi-arrow-left-circle"></i> Retour</Link>
+                        <BackButton route={'/friends'} />
                     </p>
                 </div>
             </div>

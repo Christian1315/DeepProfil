@@ -18,7 +18,7 @@ function Inscription() {
                 <div className="col-md-3"></div>
                 <div className="col-md-6">
                     <p className="text-center">
-                        <BackButton />
+                        <BackButton route={'/'} />
                     </p>
                     <form className="home-form rounded shadow-lg sign-up-form">
                         <div className="row">
@@ -40,13 +40,8 @@ function Inscription() {
                                     <input type="text" className="form-control" id="exampleInputEmail1" placeholder="Ex: Christian" />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="exampleInputEmail1" className="form-label">Groupe de district</label>
-                                    <select name="group" className="form-control" id="">
-                                        <option value="">Groupe 1</option>
-                                        <option value="">Groupe 2</option>
-                                        <option value="">Groupe 3</option>
-                                        <option value="">Groupe 4</option>
-                                    </select>
+                                    <label htmlFor="exampleInputEmail3" className="form-label">Dénomination</label>
+                                    <input type="text" className="form-control" placeholder="Ex: Apostolique, Deeper Life, etc..." />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="country" className="form-label">Pays</label>

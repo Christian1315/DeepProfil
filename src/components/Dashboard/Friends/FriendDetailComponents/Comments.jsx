@@ -1,10 +1,9 @@
-import { ChatItem, MessageBox } from "react-chat-elements"
-import style from "../../../assets/css/modules/NewComponent.module.css"
-import me from "../../../assets/images/me.jpg"
 import { useState } from "react"
-import CommentBox from "../Friends/FriendDetailComponents/CommentBox"
+import CommentBox from "./CommentBox"
+import style from "../../../../assets/css/modules/Comments.module.css"
+import me from "../../../../assets/images/me.jpg"
 
-const NewComponent = () => {
+const Comments = () => {
 
     const [showSearch, setShowSearch] = useState(false)
     const [showComments, setShowComments] = useState(false)
@@ -28,6 +27,18 @@ const NewComponent = () => {
                 {
                     id: 2,
                     content: "On s'est vu ça fait un bye!",
+                    date: new Date(),
+                    img: { me }
+                },
+                {
+                    id: 3,
+                    content: "Le petit te salut en passant :)!",
+                    date: new Date(),
+                    img: { me }
+                },
+                {
+                    id: 4,
+                    content: "Je te passe son coucou",
                     date: new Date(),
                     img: { me }
                 }
@@ -58,14 +69,31 @@ const NewComponent = () => {
         }
     ])
 
-    const HandleCommentClick = () => {
-        setShowSearch(!showSearch)
-    }
-    const HandleCommentValide = (e) => {
+    const HandleComment = (e)=>{
         setComment(e.target.value)
-        setShowComments(true)
     }
 
+    const MakeComment = () => {
+        setShowSearch(!showSearch)
+    }
+    const SubmitComment = () => {
+        let lastComment = comments.reverse()[0]
+        let data = {
+            id: lastComment.id++,
+            content: comment,
+            date: new Date(),
+            commentor: {
+                id: 1,
+                name: "GOGO Christian",
+            },
+            answers: []
+        }
+        let newComments = [data,...comments]
+
+        setComments(newComments)
+        setShowComments(true)
+        setComment('')
+    }
 
     return <>
         <div className={`card ${style._card}`}>
@@ -105,9 +133,9 @@ const NewComponent = () => {
                     <button className={`btn btn-sm bg-blue rounded-circle ${style.reactLikeBtn}`}><i className="bi bi-hand-thumbs-up"></i></button>
                     {
                         showSearch &&
-                        <div class="input-group mx-5">
-                            <input type="text" placeholder="Laisser un commentaire, puis tapez entrer .." onChange={(e) => setComment(e.target.value)} className={`form-control w-50 mb-2 ${style.searchInput}`} />
-                            <span className=""><i className="bi bi-send shadow p-1 rounded" onClick={(e) => HandleCommentValide(e)}></i></span>
+                        <div className="input-group mx-5">
+                            <input type="text" placeholder="Laisser un commentaire, puis tapez entrer .." onChange={(e)=>HandleComment(e)} className={`form-control w-50 mb-2 ${style.searchInput}`} />
+                            <span className=""><i className="bi bi-send shadow p-1 rounded" onClick={SubmitComment}></i></span>
                         </div>
                     }
 
@@ -116,7 +144,7 @@ const NewComponent = () => {
 
                 <div className={style.reactAction}>
                     <button className={`btn btn-sm bg-white shadow shadow-sm `}><i className="bi bi-hand-thumbs-up"></i> J'aime</button>
-                    <button className={`btn btn-sm bg-white shadow shadow-sm `} onClick={HandleCommentClick}><i className="bi bi-chat-dots"></i>  {showSearch ? 'Fermer le commentaire' : 'Commenter'} </button>
+                    <button className={`btn btn-sm bg-white shadow shadow-sm `} onClick={MakeComment}><i className="bi bi-chat-dots"></i>  {showSearch ? 'Fermer le commentaire' : 'Commenter'} </button>
                     <button className={`btn btn-sm bg-white shadow shadow-sm`}><i className="bi bi-send"></i> Envoyer</button>
                     <button className={`btn btn-sm bg-white shadow shadow-sm`}><i className="bi bi-share"></i> Partager</button>
                 </div>
@@ -125,12 +153,18 @@ const NewComponent = () => {
                     showComments &&
                     <div className={`commentBlok ${style.commentBlok}`}>
                         {
-                            comments.map((comment) => (
-                                <CommentBox
-                                    key={comment.id}
-                                    comment={comment}
-                                    style={style}
-                                />
+                            comments.map((comment,index) => (
+                                <div 
+                                className={style.commentRow}
+                                key={index}>
+                                    <CommentBox
+                                        setComment = {setComments}
+                                        comment={comment}
+                                        comments={comments}
+                                        setComments={setComments}
+                                        style={style}
+                                    />
+                                </div>
                             ))
                         }
                     </div>
@@ -140,4 +174,4 @@ const NewComponent = () => {
     </>
 }
 
-export default NewComponent
+export default Comments

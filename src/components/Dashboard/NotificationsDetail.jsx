@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom"
 import { useGlobalContext } from "../../Context"
 import style from "../../assets/css/modules/NotificationDetail.module.css"
+import BackButton from "../Buttons/BackButton"
 
 const NotificationsDetail = () => {
 
@@ -13,8 +14,9 @@ const NotificationsDetail = () => {
             <div className="col-md-12 py-2">
                 <h6 className={`text-left ${style.title}`}> {notification.title} </h6>
                 <p className=""> {notification.content} </p>
-
-                <Link className="text-right" to={'/notifications'}><i className="bi bi-arrow-left-circle"></i> Retour</Link>
+                <p className="text-center mt-5">
+                    <BackButton route={'/notifications'} />
+                </p>
             </div>
         </div>
     </>
