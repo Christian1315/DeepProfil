@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import img1 from "./assets/images/pub1.jpg";
 import profil from "./assets/images/gogo.png";
 import me from "./assets/images/me.jpg";
+import Swal from 'sweetalert2'
 
 const AppContext = React.createContext()
 
@@ -13,6 +14,11 @@ const useGlobalContext = () => {
 }
 
 const AppProvider = ({ children }) => {
+    // LOADER 
+    const [loader, setLoader] = useState(false)
+    const [loaderTitle, setLoaderTitle] = useState('')
+    const [loaderText, setLoaderText] = useState('')
+
     // ####### AUTHENTIFICATION ######
     const [login, setLogin] = useState(false)
     const [loginText, setLoginText] = useState("Se connecter")
@@ -67,6 +73,7 @@ const AppProvider = ({ children }) => {
         }
 
     ])
+
     const HandleSideBarNavigateLink = (id) => {
         const newLinks = sideBarLinks.map((item) => (
             item.id == parseInt(id) ?
@@ -112,7 +119,7 @@ const AppProvider = ({ children }) => {
             type: 'publication'
         }
     ]
-    const [searchResult,setSearchResult] = useState([])
+    const [searchResult, setSearchResult] = useState([])
     const HandleSearch = (e) => {
         const text = e.target.value
         text.trim() !== "" ? setSearch(true) : setSearch(false)
@@ -176,6 +183,7 @@ const AppProvider = ({ children }) => {
         }
     ])
     notifications.sort((a, b) => a.statut.localeCompare(b.statut))
+
     const HandleNotificationClick = (id) => {
         var newNotifications = notifications.map((item) => (
             id == parseInt(item.id) ?
@@ -496,6 +504,7 @@ const AppProvider = ({ children }) => {
 
         }
     ])
+
     const [currentFriend, setCurrentFriend] = useState({
         id: 8,
         img: me,
@@ -558,9 +567,45 @@ const AppProvider = ({ children }) => {
         let _currentFriendDetailNavigation = friendDetailNavigations.find((item) => item.id == parseInt(navigationId))
         setCurrentFriendDetailNavigation(_currentFriendDetailNavigation)
     }
+
+    // PUBLICATIONS
+    const [publications, setPublications] = useState([
+        {
+            id: 1,
+            content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit',
+            date: '8 Mai 2024',
+            author: {
+                id: 1,
+                name: 'GOGO Christian'
+            },
+            likes: [
+                {
+                    id: 1,
+                    liker: {
+                        name: 'Liker 1'
+                    }
+                },
+                {
+                    id: 2,
+                    liker: {
+                        name: 'Liker 2'
+                    }
+                }
+            ]
+        }
+    ])
+    const [currentPub, setCurrentPub] = useState(null)
+
     // RENDERING
     return (
         <AppContext.Provider value={{
+            loader,
+            setLoader,
+            loaderTitle,
+            setLoaderTitle,
+            loaderText,
+            setLoaderText,
+
             notifications,
             HandleNotificationClick,
 
@@ -570,6 +615,11 @@ const AppProvider = ({ children }) => {
             currentInvitation,
             setCurrentInvitation,
             InvitationClickHandle,
+
+            publications,
+            setPublications,
+            currentPub,
+            setCurrentPub,
 
             friends,
             currentFriend,

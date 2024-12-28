@@ -15,6 +15,7 @@ import FriendComponent from "../components/Dashboard/Friends/FriendComponent";
 import Pagination from "../components/Pagination";
 import ManageInvitation from "../components/Dashboard/Modals/ManageInvitation";
 import { useGlobalContext } from "../Context";
+import PublicationLikes from "../components/Dashboard/Modals/PublicationLikes";
 
 function AdminLayout({ component, icon, title }) {
 
@@ -41,7 +42,7 @@ function AdminLayout({ component, icon, title }) {
             <AdminHeader />
             <SideBar />
             <div className="row" id="admin-content" style={{ marginBottom: 0 }}>
-                <div className="col-md-2 bg_secondary shadow shadow-sm roundered p-3 d-none d-md-block">
+                <div className="col-md-2 bg_secondary shadow shadow-sm roundered d-none d-md-block">
                     {/* LE MENU */}
                     <div className="list-group bg-white p-2 card shadow shadow-sm w-100" id="">
                         <p className="text-center"><img src={logo} width={50} alt="" srcSet="" /></p>
@@ -110,6 +111,9 @@ function AdminLayout({ component, icon, title }) {
 
             {/* MANAGE INVATION */}
             <ManageInvitation />
+
+            {/* MANAGE INVATION */}
+            <PublicationLikes />
         </>
     )
 }

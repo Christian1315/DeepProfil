@@ -110,7 +110,6 @@ const NewComponent = () => {
                             <span className=""><i className="bi bi-send shadow p-1 rounded" onClick={(e) => HandleCommentValide(e)}></i></span>
                         </div>
                     }
-
                     <button className={`btn btn-sm bg-blue rounded-circle ${style.reactLikeBtn}`} onClick={() => setShowComments(!showComments)}><i className="bi bi-chat-dots"></i></button>
                 </div>
 

@@ -20,6 +20,12 @@ h6 {
     color: rgba(0, 97, 192, 1) !important;
 }
 
+.swal2-timer-progress-bar-container{
+    /* color: rgba(0, 97, 192, 1) !important; */
+    /* display: none!important; */
+    -webkit-tap-highlight-color:rgba(0, 97, 192, 1) !important
+}
+
 .rce-mbox-reply-border{
     border-color: #0477da!important;
 }

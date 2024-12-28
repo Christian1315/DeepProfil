@@ -36,6 +36,9 @@
     width: 30px;
     height: 30px;
     color: #fff;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .reactAction {
@@ -76,4 +79,15 @@
 .commentsReplayedBox{
     max-height: 200px;
     overflow-y: scroll;
+}
+
+.badgeCount{
+    width: 20px;
+    height: 20px;
+    position: absolute!important;
+    color: #0477da;
+    font-weight: bold;
+    display: block!important;
+    align-items: center!important;
+    padding: 5px;
 }
