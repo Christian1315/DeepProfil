@@ -27,7 +27,7 @@ h6 {
 }
 
 .rce-mbox-reply-border{
-    border-color: #0477da!important;
+    /* border-color: #0477da!important; */
 }
 
 .rce-mbox-reply-owner{
@@ -173,7 +173,7 @@ select.form-control {
     color: #0477da !important;
 }
 
-.d-flex .btn {
+/* .d-flex .btn {
     border-color: #0477da !important;
     color: #0477da !important;
     box-shadow: 0 0 0 .25rem rgba(0, 97, 192, .25)
@@ -189,7 +189,7 @@ select.form-control {
     border-color: #0477da !important;
     color: #0477da;
     box-shadow: 0 0 0 .25rem rgba(0, 97, 192, 0.3)
-}
+} */
 
 /* 
 YELLOW COLOR: #f7eb28 rgba(0, 97, 192, 1)

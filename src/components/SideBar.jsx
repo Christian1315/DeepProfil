@@ -18,20 +18,20 @@ function SideBar() {
     )
 
     const itemsBlockPublications = (items) => (
-        publicities.map((publiciy) => <PublicityComponent key={publiciy.id} publicity={publiciy} />)
+        items.map((publiciy) => <PublicityComponent key={publiciy.id} publicity={publiciy} />)
     )
 
     return (
         <>
             {/* LATERALE GAUCHE */}
-            <div className="offcanvas offcanvas-start " data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style={{ width: "300px" }} >
+            <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel" style={{ width: "300px" }} >
                 <div className="offcanvas-header shadow shadow-sm text-center">
                     <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel"> <Link to={'/admin'}><img src={logo} width={"50px"} alt="" className="img-fluid" srcSet="" /> </Link>  </h5>
                     <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <br />
                 <div className="offcanvas-body p-2" >
-                    <div className="shadow shadow-sm">
+                    <div className="shadow shadow-sm p-2 rounded">
                         <div className="list-group" id="sideBarNav">
                             {
                                 sideBarLinks.map((item) => (
@@ -74,7 +74,7 @@ function SideBar() {
                         {
                             <Pagination
                                 items={publicities}
-                                itemsOnPage={3}
+                                itemsOnPage={1}
                                 itemsBlock={itemsBlockPublications}
                             />
                         }

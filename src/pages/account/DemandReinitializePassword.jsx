@@ -16,7 +16,7 @@ function DemandReinitializePassword() {
             <div className="col-md-6">
                 <div className="">
                     <p className="text-center">
-                        <BackButton />
+                        <BackButton route={'/'}/>
                     </p>
                     <form className="home-form rounded shadow-lg sign-up-form">
                         <h3 className="home-title text-center">Demande de réinitialisation</h3>

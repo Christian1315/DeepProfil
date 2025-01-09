@@ -5,15 +5,11 @@ function PublicityComponent({ publicity }) {
 
     return (
         <>
-            <div style={{ backgroundImage: publicity.img }} className={`card text-dark ${style._card}`}>
-                <div className="row">
-                    <div className="col-4">
-                        <img src={publicity.img} className="d-block" alt="..." />
-                    </div>
-                    <div className={`col-8 ${style.col8}`}>
-                        <h6 className={` ${style.title} `}>{publicity.title}</h6>
-                        <p className={style.content}>{publicity.content.substring(0, 10)} ...</p>
-                    </div>
+            <div style={{ backgroundImage: publicity.img }} className={`card shadow shadow-lg text-dark ${style._card}`}>
+                <img src={publicity.img} className="d-block" alt="..." />
+                <div className={`card-body`}>
+                    <h6 className={` ${style.title} `}>{publicity.title}</h6>
+                    <p className={style.content}>{publicity.content.substring(0, 50)} ...</p>
                 </div>
             </div>
         </>

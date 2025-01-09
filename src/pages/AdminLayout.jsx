@@ -16,10 +16,12 @@ import Pagination from "../components/Pagination";
 import ManageInvitation from "../components/Dashboard/Modals/ManageInvitation";
 import { useGlobalContext } from "../Context";
 import PublicationLikes from "../components/Dashboard/Modals/PublicationLikes";
+import PublicationShare from "../components/Dashboard/Modals/PublicationShare";
+import Emojis from "../components/Dashboard/Modals/Emojis";
 
 function AdminLayout({ component, icon, title }) {
 
-    const { friends, publicities, invitations, sideBarLinks, HandleSideBarNavigateLink } = useGlobalContext()
+    const { showEmojis, friends, publicities, invitations, sideBarLinks, HandleSideBarNavigateLink } = useGlobalContext()
 
     const itemsBlockFriends = (items) => (
         items.map((item) => <FriendComponent key={item.id} friend={item} />)
@@ -29,12 +31,11 @@ function AdminLayout({ component, icon, title }) {
         items.map((item) => <InvitationComponent
             key={item.id}
             invitation={item}
-
         />)
     )
 
     const itemsBlockPublications = (items) => (
-        publicities.map((publiciy) => <PublicityComponent key={publiciy.id} publicity={publiciy} />)
+        items.map((publiciy) => <PublicityComponent key={publiciy.id} publicity={publiciy} />)
     )
 
     return (
@@ -44,14 +45,16 @@ function AdminLayout({ component, icon, title }) {
             <div className="row" id="admin-content" style={{ marginBottom: 0 }}>
                 <div className="col-md-2 bg_secondary shadow shadow-sm roundered d-none d-md-block">
                     {/* LE MENU */}
+                    <h6 className="text-left text-upercase mt-1"><i className="bi bi-calendar-event"></i> Menu</h6>
                     <div className="list-group bg-white p-2 card shadow shadow-sm w-100" id="">
+
                         <p className="text-center"><img src={logo} width={50} alt="" srcSet="" /></p>
                         {
                             sideBarLinks.map((item) => (
                                 <Link
                                     to={item.url}
                                     key={item.id}
-                                    className={item.active ? "list-group-item list-group-item-action animate__animated animate__pulse active" : "list-group-item list-group-item-action"}
+                                    className={`list-group-item list-group-item-action ${item.active && 'active'} `}
                                     onClick={() => HandleSideBarNavigateLink(item.id)}
                                 >
                                     {item.icon}  {item.text}
@@ -85,7 +88,7 @@ function AdminLayout({ component, icon, title }) {
                     {
                         <Pagination
                             items={publicities}
-                            itemsOnPage={3}
+                            itemsOnPage={1}
                             itemsBlock={itemsBlockPublications}
                         />
                     }
@@ -112,8 +115,14 @@ function AdminLayout({ component, icon, title }) {
             {/* MANAGE INVATION */}
             <ManageInvitation />
 
-            {/* MANAGE INVATION */}
+            {/* MANAGE PUB LIKES */}
             <PublicationLikes />
+
+            {/* MANAGE PUB SHARE */}
+            <PublicationShare />
+
+            {/* MANAGE PUB SHARE */}
+            {showEmojis && <Emojis />}
         </>
     )
 }

@@ -53,6 +53,8 @@
 
 .commentBlok{
     margin-block: 20px;
+    height: 200px!important;
+    overflow-y: scroll ;
 }
 
 .commentRow{
@@ -60,9 +62,8 @@
 }
 
 .replyBtn{
-    position: absolute;
-    right: 0;
-    margin-top: -15px;
+    float: right;
+    margin-top: -5px;
     border-radius: 0px 10px;
     border-top-color: #0477da!important;
 }
@@ -90,4 +91,12 @@
     display: block!important;
     align-items: center!important;
     padding: 5px;
+}
+
+.commentInput img{
+    width: 40px!important;
+    height: 40px!important;
+}
+
+.commentBox{
 }

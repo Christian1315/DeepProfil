@@ -7,9 +7,10 @@ import InfoPersos from "./FriendDetailComponents/InfoPersos"
 import BackButton from "../../Buttons/BackButton"
 
 function FriendDetail() {
-    const { friends, friendDetailNavigations,currentFriendDetailNavigation, HandleFriendDetailNavigationClick } = useGlobalContext()
-    let { friendId } = useParams()
-    const friend = friends.find((item) => item.id == friendId)
+    
+    const { friends, friendDetailNavigations,currentFriendDetailNavigation, HandleFriendDetailNavigationClick,currentFriend } = useGlobalContext()
+    // let { friendId } = useParams()
+    const friend = friends.find((item) => item.id == currentFriend.id)
 
     return (
         <>
@@ -36,6 +37,7 @@ function FriendDetail() {
                             ))
                         }
                     </div>
+                    
                     {/* COMPONENTS */}
                     <div className={` ${style.navigationContent}`}>
                         { 
@@ -60,5 +62,4 @@ function FriendDetail() {
         </>
     )
 }
-
 export default FriendDetail

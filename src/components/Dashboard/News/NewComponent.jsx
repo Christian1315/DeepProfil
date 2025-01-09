@@ -122,7 +122,7 @@ const NewComponent = () => {
 
                 {
                     showComments &&
-                    <div className={`commentBlok ${style.commentBlok}`}>
+                    <div className={`commentBlok border py-2 ${style.commentBlok}`}>
                         {
                             comments.map((comment) => (
                                 <CommentBox

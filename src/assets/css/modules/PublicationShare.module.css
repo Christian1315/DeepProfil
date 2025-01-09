@@ -1,0 +1,12 @@
+.selectedToShare{
+    background-color: rgba(0, 97, 192, 1) !important;
+}
+
+.selectedToShare .name{
+    color: #fff!important;
+}
+
+.selectedToShare span{
+    background-color: #fff!important;
+    color: rgba(0, 97, 192, 1) !important;
+}

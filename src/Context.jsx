@@ -14,10 +14,21 @@ const useGlobalContext = () => {
 }
 
 const AppProvider = ({ children }) => {
+    const replyField = document.getElementById('replyField')
+
     // LOADER 
     const [loader, setLoader] = useState(false)
     const [loaderTitle, setLoaderTitle] = useState('')
     const [loaderText, setLoaderText] = useState('')
+
+    // EMOJIS 
+    const [showEmojis, setShowEmojis] = useState(false)
+    const [emojiValue, setEmojiValue] = useState('😚')
+    const AddEmojis = (emojis) => {
+        setEmojiValue(emojis)
+        replyField.value = replyField.value + emojis
+        setShowEmojis(false)
+    }
 
     // ####### AUTHENTIFICATION ######
     const [login, setLogin] = useState(false)
@@ -33,42 +44,42 @@ const AppProvider = ({ children }) => {
             id: 1,
             text: "Mes ami(e)s",
             url: "/friends",
-            active: false,
+            active: window.location.pathname == '/friends' ? true : false,
             icon: <i className="bi bi-people mx-2"></i>
         },
         {
             id: 2,
             text: "Publications",
             url: "/news",
-            active: false,
+            active: window.location.pathname == '/news' ? true : false,
             icon: <i className="bi bi-megaphone mx-2"></i>
         },
         {
             id: 3,
             text: "Groupes",
             url: "/groups",
-            active: false,
+            active: window.location.pathname == '/groups' ? true : false,
             icon: <i className="bi bi-collection mx-2"></i>
         },
         {
             id: 4,
             text: "Notifications",
             url: "/notifications",
-            active: false,
+            active: window.location.pathname == '/notifications' ? true : false,
             icon: <i className="bi bi-bell mx-2"></i>
         },
         {
             id: 5,
             text: "Chats",
             url: "/chats",
-            active: false,
+            active: window.location.pathname == '/chats' ? true : false,
             icon: <i className="bi bi-chat-quote mx-2"></i>
         },
         {
             id: 6,
             text: "Mon Compte",
             url: "/my-account",
-            active: false,
+            active: window.location.pathname == '/my-account' ? true : false,
             icon: <i className="bi bi-gear mx-2"></i>
         }
 
@@ -206,7 +217,7 @@ const AppProvider = ({ children }) => {
             id: 2,
             title: 'Publicité 2',
             content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem dolorum veniam voluptate numquam, consequatur et cumque facere sunt iste doloribus impedit? Reprehenderit error commodi corrupti est cumque accusantium perspiciatis delectus.',
-            img: img1
+            img: me
         },
         {
             id: 3,
@@ -343,7 +354,7 @@ const AppProvider = ({ children }) => {
             id: 4,
             img: img1,
             banner: profil,
-            name: 'SEDEGNAN Florent',
+            name: 'Ruth GANSA',
             communFriends: [
                 {
                     id: 1,
@@ -375,7 +386,7 @@ const AppProvider = ({ children }) => {
             id: 5,
             img: img1,
             banner: profil,
-            name: 'SEDEGNAN Florent',
+            name: 'DOHOU Merveille',
             communFriends: [
                 {
                     id: 1,
@@ -408,7 +419,7 @@ const AppProvider = ({ children }) => {
             id: 6,
             img: img1,
             banner: profil,
-            name: 'SEDEGNAN Florent',
+            name: 'DEGUI Martine',
             communFriends: [
                 {
                     id: 1,
@@ -440,7 +451,7 @@ const AppProvider = ({ children }) => {
         {
             id: 7,
             img: me,
-            name: 'SETOH Nadège',
+            name: 'HOUYE Bénoite',
             banner: profil,
             communFriends: [
                 {
@@ -474,7 +485,7 @@ const AppProvider = ({ children }) => {
             id: 8,
             img: me,
             banner: img1,
-            name: 'SETOH Nadège',
+            name: 'IRENE DOGLO',
             communFriends: [
                 {
                     id: 1,
@@ -533,9 +544,11 @@ const AppProvider = ({ children }) => {
         ],
 
     })
+
     const FriendClickHandle = (friend) => {
         setCurrentFriend(friend)
     }
+
     const [friendDetailNavigations, setFriendDetailNavigations] = useState([
         {
             id: 1,
@@ -559,14 +572,69 @@ const AppProvider = ({ children }) => {
             active: false
         }
     ])
+
     const [currentFriendDetailNavigation, setCurrentFriendDetailNavigation] = useState(null)
+
     const HandleFriendDetailNavigationClick = (navigationId) => {
-        let newNivigations = friendDetailNavigations.map((item) => item.id == parseInt(navigationId) ? { ...item, active: true } : { ...item, active: false })
-        setFriendDetailNavigations(newNivigations)
+        let newNavigations = friendDetailNavigations.map((item) => item.id == parseInt(navigationId) ? { ...item, active: true } : { ...item, active: false })
+        setFriendDetailNavigations(newNavigations)
         // L'ACTUELLE NAVIGATION
         let _currentFriendDetailNavigation = friendDetailNavigations.find((item) => item.id == parseInt(navigationId))
         setCurrentFriendDetailNavigation(_currentFriendDetailNavigation)
     }
+
+    // LES CHATS
+    const [chats, setChats] = useState([
+        {
+            id: 1,
+            avatar: me,
+            user: {
+                id: 1,
+                name: 'Christ',
+            },
+            message: 'What are you doing?',
+            date: new Date(),
+            unreadMsg: [
+                {
+                    id: 1,
+                    message: 'Unread message 1'
+                },
+                {
+                    id: 2,
+                    message: 'Unread message 2'
+                },
+                {
+                    id: 4,
+                    message: 'Unread message 3'
+                }
+            ]
+        },
+        {
+            id: 2,
+            avatar: me,
+            user: {
+                id: 1,
+                name: 'SETOH Victoire',
+            },
+            message: 'Que fais-tu?',
+            date: new Date(),
+            unreadMsg: [
+                {
+                    id: 1,
+                    message: 'Unread message 1'
+                },
+                {
+                    id: 2,
+                    message: 'Unread message 2'
+                },
+                {
+                    id: 4,
+                    message: 'Unread message 3'
+                }
+            ]
+        }
+    ])
+    const [currentChat, setCurrentChat] = useState(null)
 
     // PUBLICATIONS
     const [publications, setPublications] = useState([
@@ -582,23 +650,63 @@ const AppProvider = ({ children }) => {
                 {
                     id: 1,
                     liker: {
-                        name: 'Liker 1'
+                        name: 'Liker 1',
+                        img: me,
                     }
                 },
                 {
                     id: 2,
                     liker: {
-                        name: 'Liker 2'
+                        name: 'Liker 2',
+                        img: me,
+                    }
+                }
+            ]
+        },
+        {
+            id: 2,
+            content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum reiciendis beatae ratione, numquam libero quo ipsum unde officiis, laudantium fugit expedita accusantium obcaecati nostrum deserunt delectus sint, iusto consectetur explicabo?',
+            date: '8 Mai 2024',
+            author: {
+                id: 1,
+                name: 'SEDEGNAN Florent'
+            },
+            likes: [
+                {
+                    id: 1,
+                    liker: {
+                        name: 'Liker 1',
+                        img: me,
+                    }
+                },
+                {
+                    id: 2,
+                    liker: {
+                        name: 'Liker 2',
+                        img: me,
                     }
                 }
             ]
         }
     ])
+
     const [currentPub, setCurrentPub] = useState(null)
 
     // RENDERING
     return (
         <AppContext.Provider value={{
+            showEmojis,
+            setShowEmojis,
+
+            emojiValue,
+            setEmojiValue,
+            AddEmojis,
+
+            chats,
+            setChats,
+            currentChat,
+            setCurrentChat,
+
             loader,
             setLoader,
             loaderTitle,
