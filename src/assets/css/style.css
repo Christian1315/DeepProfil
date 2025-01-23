@@ -27,7 +27,11 @@ h6 {
 }
 
 .rce-mbox-reply-border{
-    /* border-color: #0477da!important; */
+    border-color: #0477da!important;
+}
+
+.rce-citem-body--bottom-status span{
+  background-color: #0477da!important;
 }
 
 .rce-mbox-reply-owner{

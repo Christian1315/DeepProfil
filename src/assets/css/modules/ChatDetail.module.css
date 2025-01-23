@@ -1,0 +1,22 @@
+.title {
+    font-weight: bold;
+    background-color: #000;
+    color: #fff;
+    display: inline;
+    padding: 4px;
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+}
+
+.content{
+    overflow-y: scroll!important;
+}
+
+.inputText{
+    margin-top: 30px;
+    position: relative;
+    bottom: 0!important;
+}

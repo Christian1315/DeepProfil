@@ -21,13 +21,16 @@ const AppProvider = ({ children }) => {
     const [loaderTitle, setLoaderTitle] = useState('')
     const [loaderText, setLoaderText] = useState('')
 
+    const [replyText, setReplyText] = useState(null)
+
     // EMOJIS 
     const [showEmojis, setShowEmojis] = useState(false)
     const [emojiValue, setEmojiValue] = useState('😚')
-    const AddEmojis = (emojis) => {
-        setEmojiValue(emojis)
-        replyField.value = replyField.value + emojis
+    const AddEmojis = (emoji) => {
+        setEmojiValue(emoji)
+        replyField.value = replyField.value + emoji
         setShowEmojis(false)
+        setReplyText(replyField.value)
     }
 
     // ####### AUTHENTIFICATION ######
@@ -274,13 +277,53 @@ const AppProvider = ({ children }) => {
                     id: 1,
                     img: me,
                     banner: profil,
-                    name: "Ami 1 commun"
+                    name: "Ami 1 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 },
                 {
                     id: 2,
                     img: me,
                     banner: profil,
-                    name: "Ami 2 commun"
+                    name: "Ami 2 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 }
             ],
         },
@@ -293,29 +336,56 @@ const AppProvider = ({ children }) => {
                 {
                     id: 1,
                     img: me,
-                    banner: img1,
-                    name: "Florent Ami 1 commun"
+                    banner: profil,
+                    name: "Ami 1 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 },
                 {
                     id: 2,
                     img: me,
                     banner: profil,
-                    name: "Florent Ami 2 commun"
-                },
-                {
-                    id: 3,
-                    img: me,
-                    banner: profil,
-                    name: "Florent Ami 3 commun"
-                },
-                {
-                    id: 4,
-                    img: me,
-                    banner: img1,
-                    name: "Florent Ami 4 commun"
+                    name: "Ami 2 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 }
             ],
-
         },
         {
             id: 3,
@@ -327,28 +397,55 @@ const AppProvider = ({ children }) => {
                     id: 1,
                     img: me,
                     banner: profil,
-                    name: "Nadège Ami 1 commun"
+                    name: "Ami 1 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 },
                 {
                     id: 2,
                     img: me,
                     banner: profil,
-                    name: "Nadège Ami 2 commun"
-                },
-                {
-                    id: 3,
-                    img: me,
-                    banner: profil,
-                    name: "Nadège Ami 3 commun"
-                },
-                {
-                    id: 4,
-                    img: me,
-                    banner: profil,
-                    name: "Nadège Ami 4 commun"
+                    name: "Ami 2 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 }
             ],
-
         },
         {
             id: 4,
@@ -360,25 +457,53 @@ const AppProvider = ({ children }) => {
                     id: 1,
                     img: me,
                     banner: profil,
-                    name: "SEDEGNAN Ami 1 commun"
+                    name: "Ami 1 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 },
                 {
                     id: 2,
                     img: me,
                     banner: profil,
-                    name: "SEDEGNAN Ami 2 commun"
-                },
-                {
-                    id: 3,
-                    img: me,
-                    banner: profil,
-                    name: "SEDEGNAN Ami 3 commun"
-                },
-                {
-                    id: 4,
-                    img: me,
-                    banner: profil,
-                    name: "SEDEGNAN Ami 4 commun"
+                    name: "Ami 2 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 }
             ],
         },
@@ -392,28 +517,55 @@ const AppProvider = ({ children }) => {
                     id: 1,
                     img: me,
                     banner: profil,
-                    name: "SEDEGNAN Ami 1 commun"
+                    name: "Ami 1 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 },
                 {
                     id: 2,
                     img: me,
                     banner: profil,
-                    name: "SEDEGNAN Ami 2 commun"
-                },
-                {
-                    id: 3,
-                    img: me,
-                    banner: profil,
-                    name: "SEDEGNAN Ami 3 commun"
-                },
-                {
-                    id: 4,
-                    img: me,
-                    banner: profil,
-                    name: "SEDEGNAN Ami 4 commun"
+                    name: "Ami 2 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 }
             ],
-
         },
         {
             id: 6,
@@ -425,28 +577,55 @@ const AppProvider = ({ children }) => {
                     id: 1,
                     img: me,
                     banner: profil,
-                    name: "SEDEGNAN Ami 1 commun"
+                    name: "Ami 1 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 },
                 {
                     id: 2,
                     img: me,
                     banner: profil,
-                    name: "SEDEGNAN Ami 2 commun"
-                },
-                {
-                    id: 3,
-                    img: me,
-                    banner: profil,
-                    name: "SEDEGNAN Ami 3 commun"
-                },
-                {
-                    id: 4,
-                    img: me,
-                    banner: profil,
-                    name: "SEDEGNAN Ami 4 commun"
+                    name: "Ami 2 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 }
             ],
-
         },
         {
             id: 7,
@@ -458,28 +637,55 @@ const AppProvider = ({ children }) => {
                     id: 1,
                     img: me,
                     banner: profil,
-                    name: "Nadège Ami 1 commun"
+                    name: "Ami 1 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 },
                 {
                     id: 2,
                     img: me,
                     banner: profil,
-                    name: "Nadège Ami 2 commun"
-                },
-                {
-                    id: 3,
-                    img: me,
-                    banner: profil,
-                    name: "Nadège Ami 3 commun"
-                },
-                {
-                    id: 4,
-                    img: me,
-                    banner: profil,
-                    name: "Nadège Ami 4 commun"
+                    name: "Ami 2 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 }
             ],
-
         },
         {
             id: 8,
@@ -491,28 +697,55 @@ const AppProvider = ({ children }) => {
                     id: 1,
                     img: me,
                     banner: profil,
-                    name: "Nadège Ami 1 commun"
+                    name: "Ami 1 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 },
                 {
                     id: 2,
                     img: me,
                     banner: profil,
-                    name: "Nadège Ami 2 commun"
-                },
-                {
-                    id: 3,
-                    img: me,
-                    banner: profil,
-                    name: "Nadège Ami 3 commun"
-                },
-                {
-                    id: 4,
-                    img: me,
-                    banner: profil,
-                    name: "Nadège Ami 4 commun"
+                    name: "Ami 2 commun",
+                    communFriends: [
+                        {
+                            id: 1,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 2 commun"
+                        },
+                        {
+                            id: 2,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 3 commun"
+                        },
+                        {
+                            id: 3,
+                            img: me,
+                            banner: profil,
+                            name: "Ami 4 commun"
+                        }
+                    ]
                 }
             ],
-
         }
     ])
 
@@ -524,25 +757,56 @@ const AppProvider = ({ children }) => {
             {
                 id: 1,
                 img: me,
-                name: "Nadège Ami 1 commun"
+                banner: profil,
+                name: "Ami 1 commun",
+                communFriends: [
+                    {
+                        id: 1,
+                        img: me,
+                        banner: profil,
+                        name: "Ami 2 commun"
+                    },
+                    {
+                        id: 2,
+                        img: me,
+                        banner: profil,
+                        name: "Ami 3 commun"
+                    },
+                    {
+                        id: 3,
+                        img: me,
+                        banner: profil,
+                        name: "Ami 4 commun"
+                    }
+                ]
             },
             {
                 id: 2,
                 img: me,
-                name: "Nadège Ami 2 commun"
-            },
-            {
-                id: 3,
-                img: me,
-                name: "Nadège Ami 3 commun"
-            },
-            {
-                id: 4,
-                img: me,
-                name: "Nadège Ami 4 commun"
+                banner: profil,
+                name: "Ami 2 commun",
+                communFriends: [
+                    {
+                        id: 1,
+                        img: me,
+                        banner: profil,
+                        name: "Ami 2 commun"
+                    },
+                    {
+                        id: 2,
+                        img: me,
+                        banner: profil,
+                        name: "Ami 3 commun"
+                    },
+                    {
+                        id: 3,
+                        img: me,
+                        banner: profil,
+                        name: "Ami 4 commun"
+                    }
+                ]
             }
         ],
-
     })
 
     const FriendClickHandle = (friend) => {
@@ -584,6 +848,8 @@ const AppProvider = ({ children }) => {
     }
 
     // LES CHATS
+    const [chatValue, setChatValue] = useState('')
+    const [currentChat, setCurrentChat] = useState(null)
     const [chats, setChats] = useState([
         {
             id: 1,
@@ -592,7 +858,20 @@ const AppProvider = ({ children }) => {
                 id: 1,
                 name: 'Christ',
             },
-            message: 'What are you doing?',
+            messages: [
+                {
+                    position: 'left',
+                    type: 'text',
+                    text: 'What are you doing?',
+                    date: new Date(),
+                },
+                {
+                    position: 'right',
+                    type: 'text',
+                    text: 'Tu fous quoi là bas Bro?',
+                    date: new Date(),
+                }
+            ],
             date: new Date(),
             unreadMsg: [
                 {
@@ -611,12 +890,25 @@ const AppProvider = ({ children }) => {
         },
         {
             id: 2,
-            avatar: me,
+            avatar: img1,
             user: {
                 id: 1,
                 name: 'SETOH Victoire',
             },
-            message: 'Que fais-tu?',
+            messages: [
+                {
+                    position: 'left',
+                    type: 'text',
+                    text: 'What are you doing?',
+                    date: new Date(),
+                },
+                {
+                    position: 'right',
+                    type: 'text',
+                    text: 'Tu fous quoi mlà bas Bro?',
+                    date: new Date(),
+                }
+            ],
             date: new Date(),
             unreadMsg: [
                 {
@@ -634,7 +926,20 @@ const AppProvider = ({ children }) => {
             ]
         }
     ])
-    const [currentChat, setCurrentChat] = useState(null)
+
+    const AddChat = (text) => {
+        let random = Math.floor(Math.random() * chats.length)
+        let newChat = {
+            position: 'right',
+            type: 'text',
+            text: `New Chat ${random} `,
+            date: new Date(),
+        }
+       currentChat.messages.push(newChat)
+       setCurrentChat(currentChat)
+    //    setCurrentChat
+    //    console.log(currentChat)
+    }
 
     // PUBLICATIONS
     const [publications, setPublications] = useState([
@@ -702,10 +1007,16 @@ const AppProvider = ({ children }) => {
             setEmojiValue,
             AddEmojis,
 
+            replyText,
+            setReplyText,
+
             chats,
             setChats,
             currentChat,
             setCurrentChat,
+            AddChat,
+            chatValue,
+            setChatValue,
 
             loader,
             setLoader,

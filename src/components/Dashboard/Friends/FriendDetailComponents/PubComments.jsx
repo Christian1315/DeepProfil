@@ -112,9 +112,9 @@ const PubComments = ({ pub }) => {
     const HandleLikeClick = () => {
         setCurrentPub(null)
         let newLike = {
-            id: pub.likes.length+1,
+            id: pub.likes.length + 1,
             liker: {
-                name: `Liker new ${pub.likes.length+1}`
+                name: `Liker new ${pub.likes.length + 1}`
             }
         }
 
@@ -135,10 +135,14 @@ const PubComments = ({ pub }) => {
 
                 {
                     showSearch &&
-                    <div className="input-group mx-5">
-                        <input id="commentField" type="text" placeholder="Laisser un commentaire, puis tapez entrer .." onChange={(e) => HandleComment(e)} className={`form-control w-50 mb-2 ${style.searchInput}`} />
-                        <span className=""><i className="bi bi-send shadow p-1 rounded" onClick={SubmitComment}></i></span>
-                    </div>
+                    (
+                        <>
+                            <div className="input-group mx-5">
+                                <input id="commentField" type="text" placeholder="Laisser un commentaire, puis tapez entrer .." onChange={(e) => HandleComment(e)} className={`form-control w-50 mb-2 px-5 ${style.searchInput}`} />
+                                <span className=""><i className="bi bi-send shadow p-1 rounded" onClick={SubmitComment}></i></span>
+                            </div>
+                        </>
+                    )
                 }
 
                 <div className="">

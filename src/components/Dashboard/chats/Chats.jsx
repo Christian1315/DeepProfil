@@ -7,28 +7,33 @@ import me from "../../../assets/images/me.jpg"
 import gogo from "../../../assets/images/gogo.png"
 import { useGlobalContext } from '../../../Context'
 import ChatDetail from './ChatDetail'
-import { Link, Navigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 
 const Chats = () => {
 
-    const { chats, currentChat, setCurrentChat } = useGlobalContext()
+    const { chats, setCurrentChat } = useGlobalContext()
+    const navigate = useNavigate();
 
     const HandleChatClick = (chat) => {
-        // alert(chat.id)
         setCurrentChat(chat)
-        return <Navigate to="/chats-detail" replace />
+        navigate('/chats-detail');
     }
+
     return <>
         {
             chats.map((chat, index) => (
                 <ChatItem
                     key={index}
-                    avatar={me}
-                    alt={'Reactjs'}
-                    title={'Christ'}
-                    subtitle={'What are you doing?'}
+                    avatar={chat.avatar}
+                    alt={chat.user.name}
+                    title={chat.user.name}
+                    // On recupere le dernier message
+                    subtitle={chat.messages[chat.messages.length-1].text}
                     date={new Date()}
                     unread={3}
+                    muted={true}
+                    // showMute={true}
+                    showVideoCall={true}
                     onClick={() => HandleChatClick(chat)}
                 />
             ))

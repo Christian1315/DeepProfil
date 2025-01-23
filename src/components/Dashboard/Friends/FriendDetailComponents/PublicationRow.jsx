@@ -23,38 +23,15 @@ const PublicationRow = ({ publication, displayContent = false }) => {
                         <strong className="mx-2">{publication.author.name}</strong>
                         <span className="badge bg-blue text-white">{publication.date}</span>
                     </div>
-
                     <span className={`text-secondary ${style.action}`} onClick={() => HandleShowPubContent(publication)}>{!showPubContent ? <i className="bi bi-eye"></i> : <i className="bi bi-eye-slash"></i>}</span>
-
                 </div>
-
                 {
                     showPubContent &&
                     (
                         <>
                             <div className="card-body text-justify">
-                                {/* TEXT */}
                                 <p className="">{publication.content}</p>
-                                {/* IMAGES */}
-                                <div className="row">
-                                    <div className="col-3">
-                                        <img src={me} className="img img-fluid rounded shadow" alt="" srcSet="" />
-                                    </div>
-                                    <div className="col-3">
-                                        <img src={me} className="img img-fluid rounded shadow" alt="" srcSet="" />
-                                    </div>
-                                    <div className="col-3">
-                                        <img src={me} className="img img-fluid rounded shadow" alt="" srcSet="" />
-                                    </div>
-                                </div>
-
-                                {/* VIDEOS */}
-                                <div className="row">
-                                    <div className="col-3">
-                                    </div>
-                                </div>
                             </div>
-
                             <PubComments pub={publication} />
                         </>
                     )

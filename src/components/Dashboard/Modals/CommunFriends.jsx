@@ -2,7 +2,12 @@ import { Link } from "react-router-dom"
 import { useGlobalContext } from "../../../Context"
 
 const CommunFriends = () => {
-    const { currentFriend } = useGlobalContext()
+    const { currentFriend, setCurrentFriend,FriendClickHandle } = useGlobalContext()
+
+    const HandleCommunFriendClick = (friend) => {
+        // location.reload
+        setCurrentFriend(friend)
+    }
 
     return <>
         <div className="modal animate__animated animate__bounceIn" id="commundFriends" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -17,8 +22,8 @@ const CommunFriends = () => {
                     </div>
                     <div className="modal-body">
                         {
-                            currentFriend.communFriends.map((friend) => (
-                                <Link to={`/friend-detail/${currentFriend.id}`} key={friend.id} onClick={location.reload} className="text-dark bg-light border rounded px-1 align-items-center list-group-item d-flex justify-content-between align-items-start my-2">
+                            currentFriend.communFriends.map((friend,index) => (
+                                <Link to={`/friend-detail`} key={index} onClick={() => HandleCommunFriendClick(friend)} className="text-dark bg-light border rounded px-1 align-items-center list-group-item d-flex justify-content-between align-items-start my-2">
                                     <div className="ms-2 me-auto">
                                         <div className="fw-bold">{friend.name}</div>
                                     </div>

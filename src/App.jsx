@@ -22,7 +22,7 @@ import Index from './components/Dashboard/Index.jsx';
 import Chats from './components/Dashboard/chats/Chats.jsx';
 import Notifications from './components/Dashboard/Notifications.jsx';
 import News from './components/Dashboard/News/News.jsx';
-import Groups from './components/Dashboard/Groups.jsx';
+import Groups from './components/Dashboard/Groups/Groups.jsx';
 import MyAccount from './components/Dashboard/MyAccount.jsx';
 import NotificationsDetail from './components/Dashboard/NotificationsDetail.jsx';
 import _404 from './pages/_404.jsx';
@@ -58,7 +58,7 @@ function App() {
                 <Route path="/friend-detail" element={<AdminLayout component={<FriendDetail />} icon={<i className="bi bi-people mx-2"></i>} title={"Mes ami(e)s"} />} />
 
                 <Route path="/news" element={<AdminLayout component={<News />} icon={<i className="bi bi-megaphone mx-2"></i>} title={"Publications"} />} />
-                <Route path="/chats" element={<AdminLayout component={<Chats />} icon={<i className="bi bi-chat-quote mx-2"></i>} title={"Conversations"} />} />
+                <Route path="/chats" element={<AdminLayout component={<Chats />} icon={<i className="bi bi-chat-quote mx-2"></i>} title={"Chats"} />} />
                 <Route path="/chats-detail" element={<AdminLayout component={<ChatDetail />} icon={<i className="bi bi-chat-quote mx-2"></i>} title={"Conversations"} />} />
                 <Route path="/notifications" element={<AdminLayout component={<Notifications />} icon={<i className="bi bi-bell mx-2"></i>} title={"Notifications"} />} />
                 <Route path="/notification-detail/:notificationId" element={<AdminLayout component={<NotificationsDetail />} icon={<i className="bi bi-bell mx-2"></i>} title={"Notifications"} />} />

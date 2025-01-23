@@ -4,18 +4,18 @@ import me from "../../../../assets/images/me.jpg"
 import { useGlobalContext } from "../../../../Context";
 
 const CommentBox = ({ comment, comments, style, setComments }) => {
-    const { showEmojis, setShowEmojis, setLoader, setLoaderText, emojiValue, setEmojiValue } = useGlobalContext()
+    
+    const { showEmojis, setShowEmojis, setLoader, setLoaderText, replyText, setReplyText } = useGlobalContext()
     const replyField = document.getElementById('replyField')
 
     const [reply, setReply] = useState(false)
-    const [replyText, setReplyText] = useState(null)
 
     const HandleReplyClick = () => {
         setReply(!reply)
     }
 
     const HandleReplyTextChange = (e) => {
-        setReplyText(emojiValue ? (e.target.value + emojiValue) : e.target.value)
+        setReplyText(e.target.value)
     }
 
     const HandleReplySubmit = () => {
@@ -32,7 +32,6 @@ const CommentBox = ({ comment, comments, style, setComments }) => {
                 }
 
                 let commentAnswers = [newAnswer, ...comment.answers]
-
                 let newComments = comments.map((item) => (
                     item.id == comment.id ? { ...item, answers: commentAnswers } : item
                 ))
