@@ -1,13 +1,9 @@
 import 'react-chat-elements/dist/main.css'
 // MessageBox component
-import { MessageBox } from 'react-chat-elements'
 import { ChatItem } from 'react-chat-elements'
 
-import me from "../../../assets/images/me.jpg"
-import gogo from "../../../assets/images/gogo.png"
 import { useGlobalContext } from '../../../Context'
-import ChatDetail from './ChatDetail'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Chats = () => {
 
@@ -32,8 +28,6 @@ const Chats = () => {
                     date={new Date()}
                     unread={3}
                     muted={true}
-                    // showMute={true}
-                    showVideoCall={true}
                     onClick={() => HandleChatClick(chat)}
                 />
             ))

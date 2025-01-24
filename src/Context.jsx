@@ -5,6 +5,7 @@ import img1 from "./assets/images/pub1.jpg";
 import profil from "./assets/images/gogo.png";
 import me from "./assets/images/me.jpg";
 import Swal from 'sweetalert2'
+import { Button } from "react-chat-elements";
 
 const AppContext = React.createContext()
 
@@ -15,6 +16,7 @@ const useGlobalContext = () => {
 
 const AppProvider = ({ children }) => {
     const replyField = document.getElementById('replyField')
+    const chatInput = document.querySelector(".chatInput > textarea.rce-input-textarea")
 
     // LOADER 
     const [loader, setLoader] = useState(false)
@@ -27,10 +29,23 @@ const AppProvider = ({ children }) => {
     const [showEmojis, setShowEmojis] = useState(false)
     const [emojiValue, setEmojiValue] = useState('😚')
     const AddEmojis = (emoji) => {
+        // const emojiModalCloseBtn = document.getElementsByClassName("emojiModalCloseBtn")
         setEmojiValue(emoji)
-        replyField.value = replyField.value + emoji
+        if (replyField) {
+            replyField.value = replyField.value + emoji
+            setReplyText(replyField.value)
+        }
+
+        if (chatInput) {
+            chatInput.value = chatInput.value + emoji
+        }
+
+        // if (emojiModalCloseBtn) {
+        //     emojiModalCloseBtn.click
+        // }
+        // document.getElementsByClassName("modal-backdrop").style.display="none"
+
         setShowEmojis(false)
-        setReplyText(replyField.value)
     }
 
     // ####### AUTHENTIFICATION ######
@@ -87,7 +102,6 @@ const AppProvider = ({ children }) => {
         }
 
     ])
-
     const HandleSideBarNavigateLink = (id) => {
         const newLinks = sideBarLinks.map((item) => (
             item.id == parseInt(id) ?
@@ -133,6 +147,7 @@ const AppProvider = ({ children }) => {
             type: 'publication'
         }
     ]
+
     const [searchResult, setSearchResult] = useState([])
     const HandleSearch = (e) => {
         const text = e.target.value
@@ -905,7 +920,7 @@ const AppProvider = ({ children }) => {
                 {
                     position: 'right',
                     type: 'text',
-                    text: 'Tu fous quoi mlà bas Bro?',
+                    text: 'Tu fous quoi là bas Bro?',
                     date: new Date(),
                 }
             ],
@@ -930,15 +945,23 @@ const AppProvider = ({ children }) => {
     const AddChat = (text) => {
         let random = Math.floor(Math.random() * chats.length)
         let newChat = {
-            position: 'right',
+            position: random === 0 ? 'right' : 'left',
             type: 'text',
-            text: `New Chat ${random} `,
+            text: chatInput.value,
             date: new Date(),
         }
-       currentChat.messages.push(newChat)
-       setCurrentChat(currentChat)
-    //    setCurrentChat
-    //    console.log(currentChat)
+        let newCurrentChat = { ...currentChat, messages: [...currentChat.messages, { ...newChat }] }
+        setCurrentChat(newCurrentChat)
+
+        // Actuallisation des Chats
+        let newChats = chats.map((item) => (
+            item.id == currentChat.id ? { ...newCurrentChat } : { ...item }
+        ))
+
+        setChats(newChats)
+
+        // Clear input
+        chatInput.value = ''
     }
 
     // PUBLICATIONS

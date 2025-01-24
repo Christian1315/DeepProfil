@@ -1,18 +1,17 @@
 .emojisModal {
-    position: absolute;
+    /* position: absolute;
     top: 40%;
     right: 33%;
     align-content: center;
     align-items: center;
-    margin: auto;
+    margin: auto; */
 }
 
 .deleteIcon {
-    float: right;
+    /* float: right;
     margin-bottom: -20px;
-    /* margin-left: -10px; */
     z-index: 2;
     cursor: pointer;
     border-left: solid 2px rgba(0, 97, 192, 1) !important;
-    color: rgba(0, 97, 192, 1) !important;
+    color: rgba(0, 97, 192, 1) !important; */
 }

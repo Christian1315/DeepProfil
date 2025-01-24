@@ -1,12 +1,18 @@
 import { useGlobalContext } from "../../../Context"
 import style from "../../../assets/css/modules/ChatDetail.module.css"
-import BackButton from "../../Buttons/BackButton"
 import { Button, Input, MessageList } from "react-chat-elements"
 import React, { createRef } from "react"
 import { Link } from "react-router-dom"
 
 const ChatDetail = () => {
-    const { chatValue, setChatValue, currentChat, setCurrentChat, AddChat } = useGlobalContext()
+    const {
+        chatValue,
+        setChatValue,
+        currentChat,
+        AddChat,
+        setShowEmojis
+    } = useGlobalContext()
+
     const messageListReferance = createRef();
 
     return <>
@@ -27,22 +33,29 @@ const ChatDetail = () => {
 
                         <div className={`p-2 ` + style.content}>
                             <MessageList
+                                downButton={true}
                                 referance={messageListReferance}
                                 className='message-list'
                                 lockable={true}
                                 toBottomHeight={'100%'}
-                                onOpen={() => alert("On Open ...")}
                                 dataSource={currentChat.messages} />
 
                             {/* */}
                             <Input
                                 referance={messageListReferance}
                                 placeholder='Laissez un message ...'
-                                className={`bg-light border ` + style.inputText}
+                                className={`bg-light border chatInput ` + style.inputText}
                                 multiline={true}
                                 onChange={(e) => setChatValue(e.target.value)}
                                 autofocus={true}
-                                // onCopy={() => alert("on copy")}
+                                leftButtons={
+                                    <Link to={'#'} 
+                                    onClick={() => setShowEmojis(true)} 
+                                    className="text-dark shadow p-1 rounded" 
+                                    data-bs-toggle="modal" data-bs-target="#emojiModal"
+                                    ><i className="bi bi-emoji-tear"></i></Link>
+                                }
+
                                 rightButtons={<Button
                                     color='white'
                                     backgroundColor='black'
