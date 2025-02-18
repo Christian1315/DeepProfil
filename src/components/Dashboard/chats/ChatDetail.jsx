@@ -140,7 +140,7 @@ const ChatDetail = () => {
 
                     {/* INPUTS */}
                     <input type={fileType}
-                        // hidden
+                        hidden
                         id="files"
                         // webkitdirectory="true" // Allows selecting a directory
                         onChange={(e) => HandleDocumentUpload(e)}
