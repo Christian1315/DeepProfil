@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import HomePage from './pages/HomePage';
 import Inscription from "./pages/InscriptionPage";
@@ -14,8 +13,8 @@ import "./assets/css/bootstrap.min.css";
 import "./assets/css/admin.css";
 import "./assets/css/animate.css";
 
-import "./assets/js/popper.min.js";
-import "./assets/js/bootstrap.min.js";
+// import "./assets/js/bootstrap.min.js";
+// import "./assets/js/popper.min.js";
 
 import Friends from './components/Dashboard/Friends/Friends.jsx';
 import Index from './components/Dashboard/Index.jsx';
@@ -43,6 +42,7 @@ function App() {
             {
               loader && <Loaded />
             }
+
             <BrowserRouter>
               {/* <Header /> */}
               <Routes>
@@ -65,6 +65,7 @@ function App() {
                 <Route path="/groups" element={<AdminLayout component={<Groups />} icon={<i className="bi bi-collection mx-2"></i>} title={"Groupes d'amis"} />} />
                 <Route path="*" element={<_404 />} />
               </Routes>
+              
               <Footer />
             </BrowserRouter>
           </div>

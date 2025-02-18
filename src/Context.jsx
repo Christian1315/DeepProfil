@@ -1,11 +1,8 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
-import { Navigate } from "react-router-dom";
 
 import img1 from "./assets/images/pub1.jpg";
 import profil from "./assets/images/gogo.png";
 import me from "./assets/images/me.jpg";
-import Swal from 'sweetalert2'
-import { Button } from "react-chat-elements";
 
 const AppContext = React.createContext()
 
@@ -17,7 +14,7 @@ const useGlobalContext = () => {
 const AppProvider = ({ children }) => {
     const replyField = document.getElementById('replyField')
     const chatInput = document.querySelector(".chatInput > textarea.rce-input-textarea")
-
+    // const modalBackdropShow = document.getElementsByName("modal-backdrop")
     // LOADER 
     const [loader, setLoader] = useState(false)
     const [loaderTitle, setLoaderTitle] = useState('')
@@ -29,7 +26,6 @@ const AppProvider = ({ children }) => {
     const [showEmojis, setShowEmojis] = useState(false)
     const [emojiValue, setEmojiValue] = useState('😚')
     const AddEmojis = (emoji) => {
-        // const emojiModalCloseBtn = document.getElementsByClassName("emojiModalCloseBtn")
         setEmojiValue(emoji)
         if (replyField) {
             replyField.value = replyField.value + emoji
@@ -39,13 +35,6 @@ const AppProvider = ({ children }) => {
         if (chatInput) {
             chatInput.value = chatInput.value + emoji
         }
-
-        // if (emojiModalCloseBtn) {
-        //     emojiModalCloseBtn.click
-        // }
-        // document.getElementsByClassName("modal-backdrop").style.display="none"
-
-        setShowEmojis(false)
     }
 
     // ####### AUTHENTIFICATION ######
@@ -100,8 +89,8 @@ const AppProvider = ({ children }) => {
             active: window.location.pathname == '/my-account' ? true : false,
             icon: <i className="bi bi-gear mx-2"></i>
         }
-
     ])
+
     const HandleSideBarNavigateLink = (id) => {
         const newLinks = sideBarLinks.map((item) => (
             item.id == parseInt(id) ?
@@ -147,7 +136,6 @@ const AppProvider = ({ children }) => {
             type: 'publication'
         }
     ]
-
     const [searchResult, setSearchResult] = useState([])
     const HandleSearch = (e) => {
         const text = e.target.value
@@ -166,7 +154,7 @@ const AppProvider = ({ children }) => {
         )
     }
 
-    // ####### PROFIL MODAL ######
+    // ####### NOTIFICATIONS ######
     const [notifications, setNotifications] = useState([
         {
             id: 1,
@@ -212,7 +200,6 @@ const AppProvider = ({ children }) => {
         }
     ])
     notifications.sort((a, b) => a.statut.localeCompare(b.statut))
-
     const HandleNotificationClick = (id) => {
         var newNotifications = notifications.map((item) => (
             id == parseInt(item.id) ?
@@ -223,7 +210,7 @@ const AppProvider = ({ children }) => {
         setNotifications(newNotifications)
     }
 
-    // ###### PUBLICITES
+    // ###### PUBLICITES ######
     const [publicities, setPublicities] = useState([
         {
             id: 1,
@@ -245,7 +232,7 @@ const AppProvider = ({ children }) => {
         }
     ])
 
-    // ###### INVITATIONS
+    // ###### INVITATIONS #######
     const [invitations, setInvitations] = useState([
         {
             id: 1,
@@ -280,7 +267,7 @@ const AppProvider = ({ children }) => {
         setCurrentInvitation(invitation)
     }
 
-    // ###### FRIENDS (AMIS)
+    // ###### FRIENDS (AMIS) ######
     const [friends, setFriends] = useState([
         {
             id: 1,
@@ -763,7 +750,6 @@ const AppProvider = ({ children }) => {
             ],
         }
     ])
-
     const [currentFriend, setCurrentFriend] = useState({
         id: 8,
         img: me,
@@ -823,11 +809,9 @@ const AppProvider = ({ children }) => {
             }
         ],
     })
-
     const FriendClickHandle = (friend) => {
         setCurrentFriend(friend)
     }
-
     const [friendDetailNavigations, setFriendDetailNavigations] = useState([
         {
             id: 1,
@@ -851,9 +835,7 @@ const AppProvider = ({ children }) => {
             active: false
         }
     ])
-
     const [currentFriendDetailNavigation, setCurrentFriendDetailNavigation] = useState(null)
-
     const HandleFriendDetailNavigationClick = (navigationId) => {
         let newNavigations = friendDetailNavigations.map((item) => item.id == parseInt(navigationId) ? { ...item, active: true } : { ...item, active: false })
         setFriendDetailNavigations(newNavigations)
@@ -884,6 +866,14 @@ const AppProvider = ({ children }) => {
                     position: 'right',
                     type: 'text',
                     text: 'Tu fous quoi là bas Bro?',
+                    date: new Date(),
+                },
+                {
+                    position: 'right',
+                    type: 'photo',
+                    data: {
+                        uri: me
+                    },
                     date: new Date(),
                 }
             ],
@@ -941,27 +931,40 @@ const AppProvider = ({ children }) => {
             ]
         }
     ])
+    const AddChat = (text = null, fileType = null) => {
+        if (text) {
+            let random = Math.floor(Math.random() * chats.length)
+            let newChat = {
+                position: random === 0 ? 'right' : 'left',
+                type: fileType ? fileType : 'text',
+                text: text ? text : chatInput.value,
+                date: new Date(),
+            }
+            let newCurrentChat = { ...currentChat, messages: [...currentChat.messages, { ...newChat }] }
+            setCurrentChat(newCurrentChat)
 
-    const AddChat = (text) => {
-        let random = Math.floor(Math.random() * chats.length)
-        let newChat = {
-            position: random === 0 ? 'right' : 'left',
-            type: 'text',
-            text: chatInput.value,
-            date: new Date(),
+            // Actuallisation des Chats
+            let newChats = chats.map((item) => (
+                item.id == currentChat.id ? { ...newCurrentChat } : { ...item }
+            ))
+            setChats(newChats)
+
+            // Clear input
+            chatInput.value = ''
         }
-        let newCurrentChat = { ...currentChat, messages: [...currentChat.messages, { ...newChat }] }
-        setCurrentChat(newCurrentChat)
+    }
 
-        // Actuallisation des Chats
-        let newChats = chats.map((item) => (
-            item.id == currentChat.id ? { ...newCurrentChat } : { ...item }
-        ))
+    const [showChatFiles, setShowChatFiles] = useState(false)
+    const HandleDocumentUpload = (e) => {
+        const selectedFiles = Array.from(e.target.files);
+        console.log(selectedFiles)
+        console.log(selectedFiles[0].webkitRelativePath || "nothing ...")
 
-        setChats(newChats)
-
-        // Clear input
-        chatInput.value = ''
+        let docUrl = URL.createObjectURL(e.target.files[0])
+        console.log(e.target.files[0])
+        console.log(e.target.type)
+        AddChat(docUrl, e.target.type)
+        setShowChatFiles(false)
     }
 
     // PUBLICATIONS
@@ -1040,6 +1043,10 @@ const AppProvider = ({ children }) => {
             AddChat,
             chatValue,
             setChatValue,
+            chatInput,
+            HandleDocumentUpload,
+            showChatFiles,
+            setShowChatFiles,
 
             loader,
             setLoader,

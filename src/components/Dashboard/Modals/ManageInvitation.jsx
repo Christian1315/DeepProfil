@@ -14,7 +14,7 @@ const ManageInvitation = () => {
                     <div className="modal-body">
                         <div className="d-flex justify-content-center">
                             <button className="btn btn-sm bg-blue text-white w-50 mx-5"><i className="bi bi-check-circle text-white  mx-2" title="Valider l'invitation"></i> <span className="text-white">Accepter </span> </button>
-                            <button className="btn btn-sm btn-light text-danger w-50 mx-5"><i className="bi bi-check-circle text-danger" title="Rejeter l'invitation"></i> <span className="text-danger"> Rejeter</span> </button>
+                            <button className="btn btn-sm btn-light text-danger w-50 mx-5"><i className="bi bi-x-circle text-danger" title="Rejeter l'invitation"></i> <span className="text-danger"> Rejeter</span> </button>
                         </div>
                     </div>
                 </div>

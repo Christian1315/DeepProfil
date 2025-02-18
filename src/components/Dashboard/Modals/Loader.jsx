@@ -27,6 +27,7 @@ const Loaded = () => {
     //         console.log("I was closed by the timer");
     //     }
     // });
+
 }
 
 export default Loaded

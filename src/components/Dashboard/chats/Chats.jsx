@@ -27,7 +27,9 @@ const Chats = () => {
                     subtitle={chat.messages[chat.messages.length-1].text}
                     date={new Date()}
                     unread={3}
-                    muted={true}
+                    // showVideoCall={true}
+                    // showMute={true}
+                    // muted={true}
                     onClick={() => HandleChatClick(chat)}
                 />
             ))

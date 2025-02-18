@@ -25,7 +25,6 @@ const PublicationShare = () => {
         setFriendsToSelect(newFriendsToSelects)
     }
 
-
     return <>
         <div className="modal animate__animated animate__bounceIn" id="PublicationShare" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
