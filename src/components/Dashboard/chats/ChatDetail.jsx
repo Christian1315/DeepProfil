@@ -71,7 +71,7 @@ const ChatDetail = () => {
                                 dataSource={currentChat.messages} />
 
                             {
-                                chatInput && (chatInput.value.trim() != '' && <div className="spinner-grow spinner-grow-sm bg-white" role="status"></div>)
+                                chatInput && ((chatInput.value.trim() != '' && currentChat.messages[currentChat.messages.length - 1].position === 'right') && <div className="spinner-grow spinner-grow-sm bg-white" role="status"></div>)
                             }
 
                             {
@@ -123,7 +123,7 @@ const ChatDetail = () => {
                                 rightButtons={
                                     <div style={{ display: "flex", gap: "5px" }}>
                                         <Link to={'#'}
-                                            onClick={() => AddChat()}
+                                            onClick={() => AddChat(chatInput.value)}
                                             className="bg-dark text-white mx-1 shadow p-1 rounded"
                                         >Envoyer <i className="bi bi-send-arrow-up"></i></Link>
 

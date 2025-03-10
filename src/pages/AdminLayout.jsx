@@ -122,7 +122,7 @@ function AdminLayout({ component, icon, title }) {
             <PublicationShare />
 
             {/* MANAGE PUB SHARE */}
-            {showEmojis && <Emojis />}
+            {<Emojis />}
         </>
     )
 }

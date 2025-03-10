@@ -847,6 +847,7 @@ const AppProvider = ({ children }) => {
     // LES CHATS
     const [chatValue, setChatValue] = useState('')
     const [currentChat, setCurrentChat] = useState(null)
+    const [selectedFile, setSelectedFile] = useState(null)
     const [chats, setChats] = useState([
         {
             id: 1,
@@ -933,12 +934,19 @@ const AppProvider = ({ children }) => {
     ])
     const AddChat = (text = null, fileType = null) => {
         if (text) {
-            let random = Math.floor(Math.random() * chats.length)
+            let lastCurrentChat = currentChat.messages[currentChat.messages.length - 1]
             let newChat = {
-                position: random === 0 ? 'right' : 'left',
+                position: lastCurrentChat.position === 'right' ? 'left' : 'right',
                 type: fileType ? fileType : 'text',
                 text: text ? text : chatInput.value,
                 date: new Date(),
+                data: {
+                    uri: URL.createObjectURL(selectedFile), // Temporary URL
+                    status: {
+                        click: true,
+                        loading: false,
+                    },
+                },
             }
             let newCurrentChat = { ...currentChat, messages: [...currentChat.messages, { ...newChat }] }
             setCurrentChat(newCurrentChat)
@@ -956,15 +964,13 @@ const AppProvider = ({ children }) => {
 
     const [showChatFiles, setShowChatFiles] = useState(false)
     const HandleDocumentUpload = (e) => {
-        const selectedFiles = Array.from(e.target.files);
-        console.log(selectedFiles)
-        console.log(selectedFiles[0].webkitRelativePath || "nothing ...")
-
-        let docUrl = URL.createObjectURL(e.target.files[0])
-        console.log(e.target.files[0])
-        console.log(e.target.type)
-        AddChat(docUrl, e.target.type)
-        setShowChatFiles(false)
+        const file = e.target.files[0];
+        if (file) {
+            setShowChatFiles(false)
+            setSelectedFile(file)
+            AddChat("Télecharger", e.target.type)
+        }
+        // console.log(file);
     }
 
     // PUBLICATIONS

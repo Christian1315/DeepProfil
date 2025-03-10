@@ -65,7 +65,6 @@ function App() {
                 <Route path="/groups" element={<AdminLayout component={<Groups />} icon={<i className="bi bi-collection mx-2"></i>} title={"Groupes d'amis"} />} />
                 <Route path="*" element={<_404 />} />
               </Routes>
-              
               <Footer />
             </BrowserRouter>
           </div>
