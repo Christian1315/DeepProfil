@@ -77,7 +77,7 @@ const ChatDetail = () => {
                             {
                                 /* LES ELEMENTS DU DROPDOWN */
                                 showChatFiles && (
-                                    <div className="d-flex justify-content-center">
+                                    <div className="d-flex mt-5 justify-content-center">
                                         <button type="button" className="btn-close bg-white" onClick={() => setShowChatFiles(!showChatFiles)} aria-label="Close"></button>
                                         <ul className="list-group w-50 shadow-lg my-3">
                                             {

@@ -941,13 +941,15 @@ const AppProvider = ({ children }) => {
                 text: text ? text : chatInput.value,
                 date: new Date(),
                 data: {
-                    uri: URL.createObjectURL(selectedFile), // Temporary URL
+                    uri: selectedFile, // Temporary URL
                     status: {
                         click: true,
-                        loading: false,
+                        // loading: false,
+                        loading: 0
                     },
                 },
             }
+
             let newCurrentChat = { ...currentChat, messages: [...currentChat.messages, { ...newChat }] }
             setCurrentChat(newCurrentChat)
 
@@ -960,17 +962,18 @@ const AppProvider = ({ children }) => {
             // Clear input
             chatInput.value = ''
         }
+        setShowChatFiles(false)
     }
 
     const [showChatFiles, setShowChatFiles] = useState(false)
     const HandleDocumentUpload = (e) => {
         const file = e.target.files[0];
+        let fileUrrl = URL.createObjectURL(file)
+        // console.log(fileUrrl)
         if (file) {
-            setShowChatFiles(false)
-            setSelectedFile(file)
+            setSelectedFile(fileUrrl)
             AddChat("Télecharger", e.target.type)
         }
-        // console.log(file);
     }
 
     // PUBLICATIONS
